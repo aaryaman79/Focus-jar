@@ -33,7 +33,7 @@
             --jar-tint: rgba(180, 160, 220, 0.04);
             --jar-stroke: rgba(200, 180, 240, 0.3);
             --xp-color: #c0a0f0;
-            --coin-color: #f0c080;
+            --coin-color: #f0c080
         }
 
         [data-theme="midnight"] {
@@ -226,6 +226,101 @@
             --jar-stroke: rgba(160, 128, 255, 0.4)
         }
 
+        [data-theme="candy"] {
+            --bg: #1a0812;
+            --bg2: #240c18;
+            --bg3: #2e121e;
+            --surface: #3a1828;
+            --surface2: #4a2036;
+            --border: #6e3050;
+            --border2: #8e4068;
+            --text: #ffe0f0;
+            --text2: #f0a0c8;
+            --text3: #b06080;
+            --accent: #ff40a0;
+            --accent2: #ff80c0;
+            --accent3: #ffdf00;
+            --glow: rgba(255, 64, 160, 0.3);
+            --jar-tint: rgba(255, 64, 160, 0.04);
+            --jar-stroke: rgba(255, 64, 160, 0.35)
+        }
+
+        [data-theme="mint"] {
+            --bg: #081814;
+            --bg2: #0c2018;
+            --bg3: #102820;
+            --surface: #143428;
+            --surface2: #1a4030;
+            --border: #205838;
+            --border2: #287248;
+            --text: #d0f8e8;
+            --text2: #80d0a8;
+            --text3: #408060;
+            --accent: #00d890;
+            --accent2: #60f0b8;
+            --accent3: #f0e060;
+            --glow: rgba(0, 216, 144, 0.25);
+            --jar-tint: rgba(0, 216, 144, 0.04);
+            --jar-stroke: rgba(0, 216, 144, 0.3)
+        }
+
+        [data-theme="ember"] {
+            --bg: #180808;
+            --bg2: #200c0c;
+            --bg3: #281010;
+            --surface: #341414;
+            --surface2: #421a1a;
+            --border: #602020;
+            --border2: #802828;
+            --text: #ffe8d8;
+            --text2: #e09070;
+            --text3: #904840;
+            --accent: #ff5020;
+            --accent2: #ff8050;
+            --accent3: #ffd040;
+            --glow: rgba(255, 80, 32, 0.3);
+            --jar-tint: rgba(255, 80, 32, 0.04);
+            --jar-stroke: rgba(255, 80, 32, 0.35)
+        }
+
+        [data-theme="arctic"] {
+            --bg: #080e18;
+            --bg2: #0c1420;
+            --bg3: #101c2e;
+            --surface: #141e38;
+            --surface2: #1a2848;
+            --border: #203858;
+            --border2: #284870;
+            --text: #e0f4ff;
+            --text2: #90c8f0;
+            --text3: #4080a8;
+            --accent: #60d0ff;
+            --accent2: #a0e8ff;
+            --accent3: #ffd080;
+            --glow: rgba(96, 208, 255, 0.25);
+            --jar-tint: rgba(96, 208, 255, 0.04);
+            --jar-stroke: rgba(96, 208, 255, 0.3)
+        }
+
+        [data-theme="velvet"] {
+            --bg: #120818;
+            --bg2: #1a0c22;
+            --bg3: #22102c;
+            --surface: #2c1438;
+            --surface2: #381a48;
+            --border: #502860;
+            --border2: #683478;
+            --text: #f0d8ff;
+            --text2: #c090e0;
+            --text3: #805098;
+            --accent: #d060ff;
+            --accent2: #e898ff;
+            --accent3: #ff8060;
+            --glow: rgba(208, 96, 255, 0.3);
+            --jar-tint: rgba(208, 96, 255, 0.04);
+            --jar-stroke: rgba(208, 96, 255, 0.35)
+        }
+
         body {
             font-family: 'DM Sans', sans-serif;
             background: var(--bg);
@@ -260,7 +355,6 @@
             opacity: 0.25
         }
 
-        /* ── LAYOUT ── */
         .app {
             position: relative;
             z-index: 10;
@@ -271,7 +365,6 @@
             overflow: hidden
         }
 
-        /* ── HEADER ── */
         .header {
             grid-column: 1/-1;
             display: flex;
@@ -330,14 +423,14 @@
         .header-right {
             display: flex;
             align-items: center;
-            gap: 6px
+            gap: 5px
         }
 
         .hbtn {
             background: var(--surface);
             border: 1px solid var(--border);
             color: var(--text2);
-            padding: 5px 11px;
+            padding: 5px 10px;
             border-radius: 14px;
             font-family: 'DM Sans', sans-serif;
             font-size: 11px;
@@ -357,7 +450,6 @@
             color: var(--accent)
         }
 
-        /* XP BAR */
         .xp-strip {
             display: flex;
             align-items: center;
@@ -433,7 +525,6 @@
             font-family: 'Space Mono', monospace
         }
 
-        /* Theme picker */
         .theme-picker {
             position: relative
         }
@@ -448,10 +539,11 @@
             padding: 8px;
             display: none;
             flex-direction: column;
-            gap: 4px;
-            z-index: 500;
-            min-width: 170px;
-            max-width: 210px;
+            gap: 3px;
+            z-index: 600;
+            min-width: 180px;
+            max-height: 380px;
+            overflow-y: auto;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5)
         }
 
@@ -496,7 +588,12 @@
             flex-shrink: 0
         }
 
-        /* ── SIDEBAR ── */
+        .theme-lock {
+            font-size: 9px;
+            margin-left: auto;
+            opacity: 0.6
+        }
+
         .sidebar {
             background: rgba(26, 18, 24, 0.65);
             border-right: 1px solid var(--border);
@@ -635,7 +732,6 @@
             display: block
         }
 
-        /* ── MAIN ── */
         .main {
             display: flex;
             flex-direction: column;
@@ -707,7 +803,6 @@
             }
         }
 
-        /* ── JAR ── */
         .jar-outer {
             position: relative;
             display: flex;
@@ -717,8 +812,8 @@
 
         .jar-container {
             position: relative;
-            width: 240px;
-            height: 310px;
+            width: 280px;
+            height: 360px;
             filter: drop-shadow(0 16px 48px rgba(0, 0, 0, 0.5));
             cursor: pointer;
             flex-shrink: 0
@@ -734,21 +829,20 @@
 
         .candy-canvas {
             position: absolute;
-            left: 31px;
-            top: 35px;
-            width: 178px;
-            height: 248px;
-            border-radius: 0 0 72px 72px;
+            left: 36px;
+            top: 42px;
+            width: 208px;
+            height: 288px;
+            border-radius: 0 0 84px 84px;
             overflow: hidden
         }
 
-        /* fill level indicator */
         .jar-fill-bar {
             position: absolute;
             right: -28px;
-            top: 35px;
+            top: 42px;
             width: 6px;
-            height: 248px;
+            height: 288px;
             background: var(--surface2);
             border-radius: 3px;
             border: 1px solid var(--border);
@@ -902,7 +996,6 @@
             animation: jar-shake 0.85s ease-in-out
         }
 
-        /* leaking effect */
         .jar-leaking .candy-canvas {
             filter: sepia(0.8) saturate(0.3) brightness(0.7);
             transition: filter 1s
@@ -949,7 +1042,6 @@
             transform: translateY(-2px)
         }
 
-        /* ── SUGAR RUSH ── */
         .sugar-rush {
             position: fixed;
             inset: 0;
@@ -1009,7 +1101,6 @@
             }
         }
 
-        /* ── TOOLTIP ── */
         .candy-tooltip {
             position: fixed;
             background: var(--bg2);
@@ -1066,7 +1157,6 @@
             padding-top: 5px
         }
 
-        /* ── RIGHT PANEL ── */
         .right-panel {
             background: rgba(26, 18, 24, 0.65);
             border-left: 1px solid var(--border);
@@ -1155,7 +1245,6 @@
             transform: translateY(-1px)
         }
 
-        /* Task list */
         .task-mini {
             display: flex;
             align-items: center;
@@ -1220,7 +1309,6 @@
             color: #90d4a0
         }
 
-        /* Fortune */
         .fortune-candy-btn {
             display: flex;
             align-items: center;
@@ -1277,7 +1365,6 @@
             margin-top: 4px
         }
 
-        /* Progress bars */
         .prog-bar-wrap {
             margin-bottom: 9px
         }
@@ -1342,7 +1429,6 @@
             margin-top: 2px
         }
 
-        /* Achievement */
         .achievement {
             display: flex;
             align-items: center;
@@ -1386,7 +1472,6 @@
             opacity: 0.45
         }
 
-        /* Notes */
         .notes-area {
             width: 100%;
             background: var(--surface);
@@ -1411,7 +1496,6 @@
             color: var(--text3)
         }
 
-        /* Friends */
         .friend-jar {
             display: flex;
             align-items: center;
@@ -1467,7 +1551,6 @@
             box-shadow: 0 0 4px #52d68a
         }
 
-        /* Collection */
         .candy-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -1512,7 +1595,6 @@
             margin-top: 1px
         }
 
-        /* Sound panel */
         .sound-row {
             display: flex;
             align-items: center;
@@ -1562,12 +1644,229 @@
             left: 15px
         }
 
-        /* ── TIMER PANEL ── */
-        .timer-wrap {
-            text-align: center;
-            padding: 4px
+        /* MUSIC PLAYER */
+        .music-player {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 8px
         }
 
+        .music-track-name {
+            font-size: 12px;
+            color: var(--text);
+            font-weight: 500;
+            margin-bottom: 6px;
+            text-align: center
+        }
+
+        .music-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: center;
+            margin-bottom: 8px
+        }
+
+        .music-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text2);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s
+        }
+
+        .music-btn:hover {
+            background: var(--surface2);
+            border-color: var(--border2);
+            color: var(--text)
+        }
+
+        .music-btn.play {
+            background: linear-gradient(135deg, rgba(192, 160, 240, 0.3), rgba(245, 160, 200, 0.2));
+            border-color: var(--accent);
+            color: var(--accent);
+            width: 34px;
+            height: 34px;
+            font-size: 13px
+        }
+
+        .music-btn.play:hover {
+            background: linear-gradient(135deg, rgba(192, 160, 240, 0.5), rgba(245, 160, 200, 0.35))
+        }
+
+        .music-progress {
+            height: 3px;
+            background: var(--surface);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 5px;
+            cursor: pointer
+        }
+
+        .music-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            width: 0%;
+            transition: width 0.1s linear
+        }
+
+        .music-track-list {
+            max-height: 120px;
+            overflow-y: auto
+        }
+
+        .music-track-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 5px 7px;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.15s;
+            font-size: 11px;
+            color: var(--text2)
+        }
+
+        .music-track-item:hover {
+            background: var(--surface);
+            color: var(--text)
+        }
+
+        .music-track-item.active {
+            background: rgba(192, 160, 240, 0.15);
+            color: var(--accent)
+        }
+
+        .music-track-icon {
+            font-size: 13px;
+            flex-shrink: 0
+        }
+
+        /* SHOP */
+        .shop-section-title {
+            font-size: 11px;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin: 12px 0 7px
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 8px
+        }
+
+        .shop-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 11px;
+            text-align: center;
+            transition: all 0.2s;
+            position: relative
+        }
+
+        .shop-item:hover {
+            border-color: var(--border2);
+            transform: translateY(-2px)
+        }
+
+        .shop-item.owned {
+            border-color: var(--accent);
+            opacity: 0.75
+        }
+
+        .shop-item.cant-afford {
+            opacity: 0.5
+        }
+
+        .shop-icon {
+            font-size: 26px;
+            margin-bottom: 5px;
+            display: block
+        }
+
+        .shop-name {
+            font-size: 11px;
+            color: var(--text);
+            font-weight: 500;
+            margin-bottom: 3px
+        }
+
+        .shop-desc {
+            font-size: 9px;
+            color: var(--text3);
+            margin-bottom: 7px
+        }
+
+        .shop-price {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--coin-color);
+            font-family: 'Space Mono', monospace
+        }
+
+        .shop-buy-btn {
+            width: 100%;
+            margin-top: 6px;
+            padding: 5px;
+            border-radius: 7px;
+            background: rgba(240, 192, 128, 0.15);
+            border: 1px solid rgba(240, 192, 128, 0.35);
+            color: var(--coin-color);
+            font-size: 10px;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s
+        }
+
+        .shop-buy-btn:hover {
+            background: rgba(240, 192, 128, 0.28)
+        }
+
+        .shop-buy-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed
+        }
+
+        .shop-owned-badge {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            font-size: 9px;
+            color: var(--accent);
+            font-weight: 700
+        }
+
+        .shop-free-badge {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            font-size: 8px;
+            color: #52d68a;
+            background: rgba(82, 214, 138, 0.15);
+            border: 1px solid rgba(82, 214, 138, 0.3);
+            border-radius: 4px;
+            padding: 1px 4px;
+            font-weight: 600
+        }
+
+        /* TIMER */
         .timer-mode-btns {
             display: flex;
             gap: 4px;
@@ -1594,39 +1893,6 @@
             background: var(--surface);
             color: var(--accent);
             border: 1px solid var(--border)
-        }
-
-        .timer-display {
-            font-family: 'Space Mono', monospace;
-            font-size: 42px;
-            color: var(--text);
-            margin: 10px 0;
-            letter-spacing: 0.05em;
-            position: relative;
-            display: inline-block
-        }
-
-        .timer-display.running {
-            color: var(--accent);
-            text-shadow: 0 0 20px var(--glow)
-        }
-
-        .timer-display.warning {
-            color: #f09060;
-            text-shadow: 0 0 20px rgba(240, 144, 96, 0.4);
-            animation: tick-warn 1s ease-in-out infinite
-        }
-
-        @keyframes tick-warn {
-
-            0%,
-            100% {
-                opacity: 1
-            }
-
-            50% {
-                opacity: 0.6
-            }
         }
 
         .timer-ring {
@@ -1773,7 +2039,6 @@
             justify-content: space-between
         }
 
-        /* ── POMODORO SPECIFIC ── */
         .pomodoro-sessions {
             display: flex;
             gap: 4px;
@@ -1814,7 +2079,6 @@
             }
         }
 
-        /* ── MODAL ── */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -2009,109 +2273,6 @@
             color: var(--text)
         }
 
-        /* ── SHOP MODAL ── */
-        .shop-section-title {
-            font-size: 11px;
-            color: var(--text3);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin: 12px 0 7px
-        }
-
-        .shop-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-bottom: 8px
-        }
-
-        .shop-item {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 11px;
-            text-align: center;
-            transition: all 0.2s;
-            position: relative
-        }
-
-        .shop-item:hover {
-            border-color: var(--border2);
-            transform: translateY(-2px)
-        }
-
-        .shop-item.owned {
-            border-color: var(--accent);
-            opacity: 0.7
-        }
-
-        .shop-item.cant-afford {
-            opacity: 0.5
-        }
-
-        .shop-icon {
-            font-size: 26px;
-            margin-bottom: 5px;
-            display: block
-        }
-
-        .shop-name {
-            font-size: 11px;
-            color: var(--text);
-            font-weight: 500;
-            margin-bottom: 3px
-        }
-
-        .shop-desc {
-            font-size: 9px;
-            color: var(--text3);
-            margin-bottom: 7px
-        }
-
-        .shop-price {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 3px;
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--coin-color);
-            font-family: 'Space Mono', monospace
-        }
-
-        .shop-buy-btn {
-            width: 100%;
-            margin-top: 6px;
-            padding: 5px;
-            border-radius: 7px;
-            background: rgba(240, 192, 128, 0.15);
-            border: 1px solid rgba(240, 192, 128, 0.35);
-            color: var(--coin-color);
-            font-size: 10px;
-            cursor: pointer;
-            font-family: 'DM Sans', sans-serif;
-            transition: all 0.2s
-        }
-
-        .shop-buy-btn:hover {
-            background: rgba(240, 192, 128, 0.28)
-        }
-
-        .shop-buy-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed
-        }
-
-        .shop-owned-badge {
-            position: absolute;
-            top: 6px;
-            right: 6px;
-            font-size: 9px;
-            color: var(--accent);
-            font-weight: 700
-        }
-
-        /* ── RITUAL MODAL ── */
         .ritual-overlay {
             position: fixed;
             inset: 0;
@@ -2215,7 +2376,6 @@
             border-color: var(--accent2)
         }
 
-        /* ── SYNTHESIS MODAL ── */
         .synthesis-overlay {
             position: fixed;
             inset: 0;
@@ -2305,11 +2465,9 @@
             font-size: 9px
         }
 
-        /* ── ZEN MODE ── */
         body.zen-mode .sidebar,
         body.zen-mode .right-panel,
         body.zen-mode .header,
-        body.zen-mode .xp-strip,
         body.zen-mode .stats-strip,
         body.zen-mode .streak-banner,
         body.zen-mode .jar-actions,
@@ -2324,7 +2482,6 @@
             justify-content: center
         }
 
-        /* ── SPARKLE ── */
         .sparkle {
             position: fixed;
             pointer-events: none;
@@ -2345,7 +2502,6 @@
             }
         }
 
-        /* XP popup */
         .xp-popup {
             position: fixed;
             pointer-events: none;
@@ -2369,7 +2525,6 @@
             }
         }
 
-        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 3px
         }
@@ -2383,20 +2538,18 @@
             border-radius: 2px
         }
 
-        /* Glassmorphism jar lid shine */
         .jar-glass-shine {
             position: absolute;
-            top: 35px;
-            left: 31px;
-            width: 178px;
-            height: 60px;
+            top: 42px;
+            left: 36px;
+            width: 208px;
+            height: 70px;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 100%);
             pointer-events: none;
-            border-radius: 12px 12px 0 0;
+            border-radius: 14px 14px 0 0;
             z-index: 5
         }
 
-        /* Back arrow button in views */
         .view-back-btn {
             display: inline-flex;
             align-items: center;
@@ -2419,7 +2572,6 @@
             border-color: var(--border2)
         }
 
-        /* Overload meter */
         .jar-overload {
             width: 240px;
             display: flex;
@@ -2473,37 +2625,280 @@
             transition: width 0.5s
         }
 
-        /* Candy color variants for jar */
-        .cc-1 {
-            filter: hue-rotate(0deg)
+        @keyframes notif-sl {
+            from {
+                transform: translateX(50px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1
+            }
         }
 
-        .cc-2 {
-            filter: hue-rotate(40deg)
+        /* ── MOBILE RESPONSIVE ── */
+        @media(max-width:768px) {
+            body {
+                overflow-y: auto;
+                overflow-x: hidden
+            }
+
+            .app {
+                grid-template-columns: 1fr !important;
+                grid-template-rows: 56px auto 1fr !important;
+                height: auto;
+                min-height: 100vh;
+                overflow: visible
+            }
+
+            .sidebar {
+                grid-row: 2;
+                grid-column: 1;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                overflow-y: hidden;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 4px 6px;
+                gap: 2px;
+                max-height: 52px;
+                min-height: 52px;
+                align-items: center
+            }
+
+            .sidebar .nav-section,
+            .sidebar .mood-bar,
+            .sidebar .sidebar-clock,
+            .sidebar .overload-warning,
+            .sidebar div[style*="margin-top:auto"] {
+                display: none !important
+            }
+
+            .nav-item {
+                padding: 5px 9px;
+                border-left: none !important;
+                border-bottom: 2px solid transparent;
+                border-radius: 8px;
+                font-size: 11px;
+                flex-shrink: 0;
+                white-space: nowrap
+            }
+
+            .nav-item.active {
+                border-left: none !important;
+                border-bottom-color: var(--accent) !important
+            }
+
+            .main {
+                grid-row: 3;
+                grid-column: 1;
+                padding: 10px 8px;
+                overflow-y: auto;
+                align-items: center;
+                min-height: 0
+            }
+
+            .right-panel {
+                display: none !important
+            }
+
+            .xp-strip {
+                flex-wrap: wrap;
+                gap: 4px
+            }
+
+            .xp-track {
+                max-width: 130px
+            }
+
+            .stats-strip {
+                gap: 4px;
+                max-width: 320px
+            }
+
+            .stat-pill {
+                padding: 5px 4px
+            }
+
+            .stat-pill .val {
+                font-size: 14px
+            }
+
+            .stat-pill .lbl {
+                font-size: 8px
+            }
+
+            .jar-container {
+                width: 260px;
+                height: 336px
+            }
+
+            .candy-canvas {
+                left: 33px !important;
+                top: 38px !important;
+                width: 194px !important;
+                height: 270px !important;
+                border-radius: 0 0 80px 80px !important
+            }
+
+            .jar-glass-shine {
+                top: 38px !important;
+                left: 33px !important;
+                width: 194px !important
+            }
+
+            .jar-fill-bar {
+                right: -22px;
+                top: 38px !important;
+                height: 270px !important
+            }
+
+            .jar-overload {
+                width: 260px
+            }
+
+            .jar-actions {
+                gap: 5px;
+                padding: 0 4px
+            }
+
+            .jar-btn {
+                padding: 5px 9px;
+                font-size: 10px
+            }
+
+            .streak-banner {
+                font-size: 10px;
+                padding: 5px 10px
+            }
+
+            .view-back-btn {
+                padding: 5px 10px;
+                font-size: 10px
+            }
+
+            .modal,
+            .ritual-box,
+            .synthesis-box {
+                width: 94vw !important;
+                max-width: 94vw !important;
+                padding: 16px
+            }
+
+            .form-row {
+                grid-template-columns: 1fr !important
+            }
+
+            .shop-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            h2[style*="font-size:19px"] {
+                font-size: 16px !important
+            }
+
+            #view-tasks,
+            #view-progress,
+            #view-collection,
+            #view-friends,
+            #view-notes {
+                max-width: 100% !important;
+                width: 100% !important
+            }
+
+            .header-center {
+                display: none
+            }
+
+            .hbtn {
+                padding: 4px 7px;
+                font-size: 10px
+            }
+
+            .coin-display {
+                padding: 2px 7px;
+                font-size: 10px
+            }
+
+            .xp-label,
+            .xp-level {
+                font-size: 9px
+            }
+
+            .mobile-mood-bar {
+                display: flex !important
+            }
         }
 
-        .cc-3 {
-            filter: hue-rotate(80deg)
+        @media(max-width:480px) {
+            .jar-container {
+                width: 220px;
+                height: 284px
+            }
+
+            .candy-canvas {
+                left: 28px !important;
+                top: 33px !important;
+                width: 164px !important;
+                height: 222px !important;
+                border-radius: 0 0 66px 66px !important
+            }
+
+            .jar-glass-shine {
+                top: 33px !important;
+                left: 28px !important;
+                width: 164px !important
+            }
+
+            .jar-fill-bar {
+                right: -16px;
+                top: 33px !important;
+                height: 222px !important
+            }
+
+            .jar-actions {
+                gap: 4px
+            }
+
+            .jar-btn {
+                padding: 4px 7px;
+                font-size: 9px
+            }
+
+            .stats-strip {
+                max-width: 260px
+            }
+
+            .stat-pill .val {
+                font-size: 12px
+            }
         }
 
-        .cc-4 {
-            filter: hue-rotate(140deg)
+        /* Mobile mood bar shown below jar */
+        .mobile-mood-bar {
+            display: none;
+            flex-wrap: wrap;
+            gap: 4px;
+            justify-content: center;
+            margin-top: 8px;
+            padding: 8px 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 280px
         }
 
-        .cc-5 {
-            filter: hue-rotate(200deg)
-        }
-
-        .cc-6 {
-            filter: hue-rotate(260deg)
-        }
-
-        .cc-7 {
-            filter: hue-rotate(300deg)
-        }
-
-        .cc-8 {
-            filter: hue-rotate(340deg)
+        .mobile-mood-bar .mood-label {
+            width: 100%;
+            font-size: 9px;
+            color: var(--text3);
+            text-align: center;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em
         }
     </style>
 </head>
@@ -2512,11 +2907,9 @@
     <div class="ambient"></div>
     <canvas class="dust-canvas" id="dustCanvas"></canvas>
     <canvas class="rain-canvas" id="rainCanvas"></canvas>
-
     <div class="sugar-rush" id="sugarRush">
         <div class="rush-text" id="rushText">🍬 SUGAR RUSH!</div>
     </div>
-
     <div class="candy-tooltip" id="candyTooltip">
         <div class="tt-name" id="tt-name"></div>
         <div class="tt-type" id="tt-type"></div>
@@ -2525,25 +2918,19 @@
         <div class="tt-row"><span>🏷 Mood</span><span id="tt-mood"></span></div>
         <div class="tt-hint">Double-click to complete · Click to highlight</div>
     </div>
-
     <!-- ADD TASK MODAL -->
     <div class="modal-overlay" id="modal">
         <div class="modal">
             <div class="modal-header">
-                <div class="modal-title">🍬 Drop a new candy</div>
-                <button class="modal-back" onclick="closeModal()">← Back</button>
+                <div class="modal-title">🍬 Drop a new candy</div><button class="modal-back" onclick="closeModal()">←
+                    Back</button>
             </div>
-            <div class="candy-preview-bar">
-                <span class="preview-candy" id="previewCandy">🍬</span>
-                <span class="preview-text" id="previewText">Pick size & mood</span>
-            </div>
-            <div class="form-group">
-                <label class="form-label">Task name</label>
-                <input class="form-input" id="taskName" placeholder="What needs to get done?" autocomplete="off">
-            </div>
+            <div class="candy-preview-bar"><span class="preview-candy" id="previewCandy">🍬</span><span
+                    class="preview-text" id="previewText">Pick size & mood</span></div>
+            <div class="form-group"><label class="form-label">Task name</label><input class="form-input" id="taskName"
+                    placeholder="What needs to get done?" autocomplete="off"></div>
             <div class="form-row">
-                <div class="form-group">
-                    <label class="form-label">Size</label>
+                <div class="form-group"><label class="form-label">Size</label>
                     <select class="form-select" id="taskSize" onchange="updatePreview()">
                         <option value="tiny">🟡 Tiny — Jellybean</option>
                         <option value="small">🔵 Small — Drop</option>
@@ -2552,8 +2939,7 @@
                         <option value="massive">🍭 Massive — Lollipop</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-label">Mood</label>
+                <div class="form-group"><label class="form-label">Mood</label>
                     <select class="form-select" id="taskMood" onchange="updatePreview()">
                         <option value="fun">🌸 Fun</option>
                         <option value="study">📘 Study</option>
@@ -2565,8 +2951,7 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group">
-                    <label class="form-label">Est. time</label>
+                <div class="form-group"><label class="form-label">Est. time</label>
                     <select class="form-select" id="taskTime">
                         <option>5 min</option>
                         <option>15 min</option>
@@ -2577,28 +2962,21 @@
                         <option>Full day</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-label">Deadline</label>
-                    <input class="form-input" id="taskDeadline" type="date">
-                </div>
+                <div class="form-group"><label class="form-label">Deadline</label><input class="form-input"
+                        id="taskDeadline" type="date"></div>
             </div>
-            <div class="form-group">
-                <label class="form-label">Notes</label>
-                <textarea class="form-textarea" id="taskNotes" placeholder="Any extra details..."></textarea>
-            </div>
-            <div class="modal-actions">
-                <button class="btn-secondary" onclick="closeModal()">Cancel</button>
-                <button class="btn-primary" onclick="addTask()">Drop into jar ✦</button>
-            </div>
+            <div class="form-group"><label class="form-label">Notes</label><textarea class="form-textarea"
+                    id="taskNotes" placeholder="Any extra details..."></textarea></div>
+            <div class="modal-actions"><button class="btn-secondary" onclick="closeModal()">Cancel</button><button
+                    class="btn-primary" onclick="addTask()">Drop into jar ✦</button></div>
         </div>
     </div>
-
     <!-- SHOP MODAL -->
     <div class="modal-overlay" id="shopModal">
         <div class="modal">
             <div class="modal-header">
-                <div class="modal-title">🛒 Candy Shop</div>
-                <button class="modal-back" onclick="closeShop()">← Back</button>
+                <div class="modal-title">🛒 Candy Shop</div><button class="modal-back" onclick="closeShop()">←
+                    Back</button>
             </div>
             <div
                 style="display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--surface);border-radius:8px;margin-bottom:4px">
@@ -2610,7 +2988,6 @@
             <div id="shopContent"></div>
         </div>
     </div>
-
     <!-- RITUAL MODAL -->
     <div class="ritual-overlay" id="ritualOverlay">
         <div class="ritual-box">
@@ -2630,7 +3007,6 @@
             <button class="btn-secondary" style="margin-top:6px;width:100%" onclick="skipRitual()">Skip Ritual</button>
         </div>
     </div>
-
     <!-- SYNTHESIS MODAL -->
     <div class="synthesis-overlay" id="synthesisOverlay">
         <div class="synthesis-box">
@@ -2638,16 +3014,14 @@
             <div class="synth-sub">In 10 words or less, what did you just accomplish?</div>
             <input class="synth-input" id="synthInput" placeholder="I finished..." maxlength="60">
             <div class="synth-count" id="synthCount">0 / 10 words</div>
-            <div class="modal-actions" style="margin-top:8px">
-                <button class="btn-secondary" onclick="closeSynthesis()">Skip</button>
-                <button class="btn-primary" onclick="saveSynthesis()">Save to Log ✦</button>
-            </div>
+            <div class="modal-actions" style="margin-top:8px"><button class="btn-secondary"
+                    onclick="closeSynthesis()">Skip</button><button class="btn-primary" onclick="saveSynthesis()">Save
+                    to Log ✦</button></div>
             <div id="knowledgeLogDisplay" style="margin-top:12px"></div>
         </div>
     </div>
 
     <div class="app" id="appGrid">
-        <!-- XP STRIP spans full width (row 1 col 1-3 after header) -->
         <header class="header">
             <div class="logo">🍬 CandyJar</div>
             <div class="header-center">
@@ -2655,13 +3029,13 @@
                 <div class="day-badge" id="dayBadge"></div>
             </div>
             <div class="header-right">
-                <button class="hbtn active" id="rainBtn" onclick="toggleRain()">🌧 Rain</button>
-                <button class="hbtn" id="soundBtn" onclick="toggleSound()">🔇 Sound</button>
-                <button class="hbtn" id="zenBtn" onclick="toggleZen()">🧘 Zen</button>
+                <button class="hbtn active" id="rainBtn" onclick="toggleRain()">🌧</button>
+                <button class="hbtn" id="soundBtn" onclick="toggleSound()">🔇</button>
+                <button class="hbtn" id="zenBtn" onclick="toggleZen()">🧘</button>
                 <div class="theme-picker">
                     <button class="hbtn" onclick="toggleThemeMenu()" id="themeBtn">🎨 Theme</button>
                     <div class="theme-dropdown" id="themeDropdown">
-                        <div class="theme-section-label">Original</div>
+                        <div class="theme-section-label">Free Themes</div>
                         <div class="theme-opt active" onclick="setTheme('default',this)"><span class="theme-swatch"
                                 style="background:linear-gradient(135deg,#c0a0f0,#f5a0c8)"></span>Cozy Purple</div>
                         <div class="theme-opt" onclick="setTheme('midnight',this)"><span class="theme-swatch"
@@ -2674,17 +3048,47 @@
                                 style="background:linear-gradient(135deg,#40a8f0,#f0d860)"></span>Ocean</div>
                         <div class="theme-opt" onclick="setTheme('sakura',this)"><span class="theme-swatch"
                                 style="background:linear-gradient(135deg,#f080b0,#f0e080)"></span>Sakura</div>
-                        <div class="theme-section-label">New Themes</div>
-                        <div class="theme-opt" onclick="setTheme('neon',this)"><span class="theme-swatch"
-                                style="background:linear-gradient(135deg,#00f5ff,#ff00ff)"></span>Neon City</div>
-                        <div class="theme-opt" onclick="setTheme('latte',this)"><span class="theme-swatch"
-                                style="background:linear-gradient(135deg,#c07040,#e0b040)"></span>Latte (Light)</div>
-                        <div class="theme-opt" onclick="setTheme('aurora',this)"><span class="theme-swatch"
-                                style="background:linear-gradient(135deg,#00e8c0,#e8a040)"></span>Aurora</div>
-                        <div class="theme-opt" onclick="setTheme('rose',this)"><span class="theme-swatch"
-                                style="background:linear-gradient(135deg,#ff6080,#ffd060)"></span>Rose Gold</div>
-                        <div class="theme-opt" onclick="setTheme('galaxy',this)"><span class="theme-swatch"
-                                style="background:linear-gradient(135deg,#a080ff,#ffc060)"></span>Galaxy</div>
+                        <div class="theme-section-label">Premium (Shop)</div>
+                        <div class="theme-opt" id="topt-neon" onclick="tryPremiumTheme('neon',this)"><span
+                                class="theme-swatch"
+                                style="background:linear-gradient(135deg,#00f5ff,#ff00ff)"></span>Neon City<span
+                                class="theme-lock" id="tlock-neon">🔒</span></div>
+                        <div class="theme-opt" id="topt-latte" onclick="tryPremiumTheme('latte',this)"><span
+                                class="theme-swatch"
+                                style="background:linear-gradient(135deg,#c07040,#e0b040)"></span>Latte<span
+                                class="theme-lock" id="tlock-latte">🔒</span></div>
+                        <div class="theme-opt" id="topt-aurora" onclick="tryPremiumTheme('aurora',this)"><span
+                                class="theme-swatch"
+                                style="background:linear-gradient(135deg,#00e8c0,#e8a040)"></span>Aurora<span
+                                class="theme-lock" id="tlock-aurora">🔒</span></div>
+                        <div class="theme-opt" id="topt-rose" onclick="tryPremiumTheme('rose',this)"><span
+                                class="theme-swatch"
+                                style="background:linear-gradient(135deg,#ff6080,#ffd060)"></span>Rose Gold<span
+                                class="theme-lock" id="tlock-rose">🔒</span></div>
+                        <div class="theme-opt" id="topt-galaxy" onclick="tryPremiumTheme('galaxy',this)"><span
+                                class="theme-swatch"
+                                style="background:linear-gradient(135deg,#a080ff,#ffc060)"></span>Galaxy<span
+                                class="theme-lock" id="tlock-galaxy">🔒</span></div>
+                        <div class="theme-opt" id="topt-candy" onclick="tryPremiumTheme('candy',this)"><span
+                                class="theme-swatch"
+                                style="background:linear-gradient(135deg,#ff40a0,#ffdf00)"></span>Candy Pop<span
+                                class="theme-lock" id="tlock-candy">🔒</span></div>
+                        <div class="theme-opt" id="topt-mint" onclick="tryPremiumTheme('mint',this)"><span
+                                class="theme-swatch"
+                                style="background:linear-gradient(135deg,#00d890,#f0e060)"></span>Mint<span
+                                class="theme-lock" id="tlock-mint">🔒</span></div>
+                        <div class="theme-opt" id="topt-ember" onclick="tryPremiumTheme('ember',this)"><span
+                                class="theme-swatch"
+                                style="background:linear-gradient(135deg,#ff5020,#ffd040)"></span>Ember<span
+                                class="theme-lock" id="tlock-ember">🔒</span></div>
+                        <div class="theme-opt" id="topt-arctic" onclick="tryPremiumTheme('arctic',this)"><span
+                                class="theme-swatch"
+                                style="background:linear-gradient(135deg,#60d0ff,#ffd080)"></span>Arctic<span
+                                class="theme-lock" id="tlock-arctic">🔒</span></div>
+                        <div class="theme-opt" id="topt-velvet" onclick="tryPremiumTheme('velvet',this)"><span
+                                class="theme-swatch"
+                                style="background:linear-gradient(135deg,#d060ff,#ff8060)"></span>Velvet<span
+                                class="theme-lock" id="tlock-velvet">🔒</span></div>
                     </div>
                 </div>
             </div>
@@ -2734,7 +3138,6 @@
         </aside>
 
         <main class="main" id="mainArea" style="grid-row:2">
-            <!-- XP BAR overlay inside main -->
             <div class="xp-strip"
                 style="width:100%;max-width:480px;margin-bottom:8px;background:transparent;border:none;height:auto;padding:0">
                 <span class="xp-label">LV<span id="xpLevel">1</span></span>
@@ -2744,7 +3147,6 @@
                 <span class="xp-level"><span id="xpCurrent">0</span>/<span id="xpMax">100</span></span>
                 <div class="coin-display">💰 <span id="coinDisplay">0</span></div>
             </div>
-
             <!-- JAR VIEW -->
             <div id="view-jar" class="view" style="display:flex;flex-direction:column;align-items:center">
                 <div class="streak-banner" id="streakBanner">⚡ <strong>Sugar Rush!</strong> <span
@@ -2810,7 +3212,7 @@
                     </div>
                     <div class="jar-overload" id="jarOverload">
                         <span style="font-size:14px">⚠️</span>
-                        <div class="overload-text">Overload Rush! <span id="overloadPct">0</span>%</div>
+                        <div class="overload-text">Overload! <span id="overloadPct">0</span>%</div>
                         <div class="overload-bar">
                             <div class="overload-fill" id="overloadFill" style="width:0%"></div>
                         </div>
@@ -2825,7 +3227,6 @@
                     <button class="jar-btn" onclick="startRitual()">✦ Ritual</button>
                 </div>
             </div>
-
             <!-- TASK LIST VIEW -->
             <div id="view-tasks" class="view" style="display:none;width:100%;max-width:500px">
                 <button class="view-back-btn" onclick="setSideNavById('jar')">← Back to Jar</button>
@@ -2833,7 +3234,6 @@
                     Task List</h2>
                 <div id="fullTaskList"></div>
             </div>
-
             <!-- PROGRESS VIEW -->
             <div id="view-progress" class="view" style="display:none;width:100%;max-width:500px">
                 <button class="view-back-btn" onclick="setSideNavById('jar')">← Back to Jar</button>
@@ -2841,7 +3241,6 @@
                     Progress</h2>
                 <div id="progressContent"></div>
             </div>
-
             <!-- COLLECTION VIEW -->
             <div id="view-collection" class="view" style="display:none;width:100%;max-width:500px">
                 <button class="view-back-btn" onclick="setSideNavById('jar')">← Back to Jar</button>
@@ -2849,7 +3248,6 @@
                     Candy Collection</h2>
                 <div id="collectionContent"></div>
             </div>
-
             <!-- FRIENDS VIEW -->
             <div id="view-friends" class="view" style="display:none;width:100%;max-width:500px">
                 <button class="view-back-btn" onclick="setSideNavById('jar')">← Back to Jar</button>
@@ -2857,7 +3255,6 @@
                     Friend Jars</h2>
                 <div id="friendsContent"></div>
             </div>
-
             <!-- NOTES VIEW -->
             <div id="view-notes" class="view" style="display:none;width:100%;max-width:500px">
                 <button class="view-back-btn" onclick="setSideNavById('jar')">← Back to Jar</button>
@@ -2873,9 +3270,8 @@
                 <div class="tab active" onclick="setTab(this,'rt-fortune')">✦ Fortune</div>
                 <div class="tab" onclick="setTab(this,'rt-jar')">📋 Jar</div>
                 <div class="tab" onclick="setTab(this,'rt-timer')">⏱ Timer</div>
-                <div class="tab" onclick="setTab(this,'rt-sounds')">🎵</div>
+                <div class="tab" onclick="setTab(this,'rt-music')">🎵 Music</div>
             </div>
-
             <div class="tab-panel active" id="rt-fortune">
                 <div class="panel-section">
                     <div class="panel-title">Daily Fortune Candy</div>
@@ -2892,8 +3288,27 @@
                     <div id="moodSuggestion" style="font-size:11px;color:var(--text2);line-height:1.6">Select a mood to
                         get candy recommendations...</div>
                 </div>
+                <div class="panel-section">
+                    <div class="panel-title">Sound FX</div>
+                    <div class="sound-row"><span class="sound-name">🍬 Drop</span>
+                        <div class="sound-toggle on" id="snd-drop" onclick="toggleSndToggle(this)"></div>
+                    </div>
+                    <div class="sound-row"><span class="sound-name">✨ Complete</span>
+                        <div class="sound-toggle on" id="snd-complete" onclick="toggleSndToggle(this)"></div>
+                    </div>
+                    <div class="sound-row"><span class="sound-name">⚡ Sugar Rush</span>
+                        <div class="sound-toggle on" id="snd-rush" onclick="toggleSndToggle(this)"></div>
+                    </div>
+                    <div class="sound-row"><span class="sound-name">🔔 Timer Bell</span>
+                        <div class="sound-toggle on" id="snd-bell" onclick="toggleSndToggle(this)"></div>
+                    </div>
+                    <div style="margin-top:8px"><input type="range" min="0" max="100" value="60" id="volumeSlider"
+                            style="width:100%;accent-color:var(--accent)" oninput="setVolume(this.value)">
+                        <div style="text-align:center;font-size:10px;color:var(--text3);margin-top:2px" id="volDisplay">
+                            60%</div>
+                    </div>
+                </div>
             </div>
-
             <div class="tab-panel" id="rt-jar">
                 <div class="panel-section" style="flex:1">
                     <div class="panel-title">In The Jar</div>
@@ -2903,7 +3318,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- TIMER PANEL -->
             <div class="tab-panel" id="rt-timer">
                 <div class="panel-section">
@@ -2914,8 +3328,6 @@
                         <button class="tmode-btn" id="tmode-stopwatch" onclick="setTimerMode('stopwatch')">⏱
                             Watch</button>
                     </div>
-
-                    <!-- POMODORO -->
                     <div id="timer-pomo-view">
                         <div class="pomodoro-sessions" id="pomoDots"></div>
                         <div class="timer-ring">
@@ -2943,20 +3355,15 @@
                                 onclick="setPomoTime(15,3)">15/3</button>
                         </div>
                     </div>
-
-                    <!-- CUSTOM TIMER -->
                     <div id="timer-custom-view" style="display:none">
                         <div style="text-align:center;margin-bottom:10px">
-                            <div class="ring-time" id="customTimerDisplay"
+                            <div id="customTimerDisplay"
                                 style="font-family:'Space Mono',monospace;font-size:40px;color:var(--text)">00:00</div>
                         </div>
                         <div class="timer-custom-row">
-                            <input type="number" id="customHr" value="0" min="0" max="23" placeholder="HH">
-                            <span>h</span>
-                            <input type="number" id="customMin" value="25" min="0" max="59" placeholder="MM">
-                            <span>m</span>
-                            <input type="number" id="customSec" value="0" min="0" max="59" placeholder="SS">
-                            <span>s</span>
+                            <input type="number" id="customHr" value="0" min="0" max="23"><span>h</span>
+                            <input type="number" id="customMin" value="25" min="0" max="59"><span>m</span>
+                            <input type="number" id="customSec" value="0" min="0" max="59"><span>s</span>
                         </div>
                         <div class="timer-controls">
                             <button class="t-btn" onclick="resetCustomTimer()">↺</button>
@@ -2966,8 +3373,6 @@
                         <div style="font-size:10px;color:var(--text3);text-align:center;margin-top:8px"
                             id="customTimerLabel">Set your time above</div>
                     </div>
-
-                    <!-- STOPWATCH -->
                     <div id="timer-stopwatch-view" style="display:none">
                         <div style="text-align:center;margin-bottom:10px">
                             <div id="stopwatchDisplay"
@@ -2990,46 +3395,58 @@
                     <div class="session-log" id="sessionLog"></div>
                 </div>
             </div>
-
-            <div class="tab-panel" id="rt-sounds">
+            <!-- MUSIC PANEL -->
+            <div class="tab-panel" id="rt-music">
                 <div class="panel-section">
-                    <div class="panel-title">Sound Effects</div>
-                    <div class="sound-row"><span class="sound-name">🍬 Candy Drop</span>
-                        <div class="sound-toggle on" id="snd-drop" onclick="toggleSndToggle(this)"></div>
+                    <div class="panel-title">🎵 Ambient Music Player</div>
+                    <div class="music-player">
+                        <div class="music-track-name" id="musicTrackName">Select a track to play</div>
+                        <div class="music-controls">
+                            <button class="music-btn" onclick="prevTrack()" title="Previous">⏮</button>
+                            <button class="music-btn play" id="musicPlayBtn" onclick="toggleMusic()">▶</button>
+                            <button class="music-btn" onclick="nextTrack()" title="Next">⏭</button>
+                            <button class="music-btn" id="musicLoopBtn" onclick="toggleLoop()" title="Loop"
+                                style="font-size:9px">🔁</button>
+                        </div>
+                        <div class="music-progress" id="musicProgress" onclick="seekMusic(event)">
+                            <div class="music-progress-fill" id="musicProgressFill"></div>
+                        </div>
+                        <div
+                            style="display:flex;justify-content:space-between;font-size:9px;color:var(--text3);margin-bottom:8px">
+                            <span id="musicCurrent">0:00</span><span id="musicTotal">0:00</span>
+                        </div>
                     </div>
-                    <div class="sound-row"><span class="sound-name">✨ Complete</span>
-                        <div class="sound-toggle on" id="snd-complete" onclick="toggleSndToggle(this)"></div>
+                    <div style="margin-bottom:6px"><input type="range" min="0" max="100" value="50" id="musicVol"
+                            style="width:100%;accent-color:var(--accent)" oninput="setMusicVol(this.value)">
+                        <div style="text-align:center;font-size:9px;color:var(--text3)">Music Volume: <span
+                                id="musicVolDisplay">50%</span></div>
                     </div>
-                    <div class="sound-row"><span class="sound-name">🫙 Jar Shake</span>
-                        <div class="sound-toggle on" id="snd-shake" onclick="toggleSndToggle(this)"></div>
-                    </div>
-                    <div class="sound-row"><span class="sound-name">⚡ Sugar Rush</span>
-                        <div class="sound-toggle on" id="snd-rush" onclick="toggleSndToggle(this)"></div>
-                    </div>
-                    <div class="sound-row"><span class="sound-name">🔔 Timer Bell</span>
-                        <div class="sound-toggle on" id="snd-bell" onclick="toggleSndToggle(this)"></div>
-                    </div>
-                </div>
-                <div class="panel-section">
-                    <div class="panel-title">Volume</div>
-                    <input type="range" min="0" max="100" value="60" id="volumeSlider"
-                        style="width:100%;accent-color:var(--accent)" oninput="setVolume(this.value)">
-                    <div style="text-align:center;font-size:10px;color:var(--text3);margin-top:3px" id="volDisplay">60%
-                    </div>
+                    <div class="panel-title" style="margin-top:8px">Tracks</div>
+                    <div class="music-track-list" id="musicTrackList"></div>
                 </div>
                 <div class="panel-section">
                     <div class="panel-title">Ambient Sounds</div>
                     <div class="sound-row"><span class="sound-name">🌧 Rain</span>
                         <div class="sound-toggle" id="snd-rain" onclick="toggleSndToggle(this)"></div>
                     </div>
-                    <div class="sound-row"><span class="sound-name">☕ Lo-fi Beats</span>
-                        <div class="sound-toggle" id="snd-lofi" onclick="toggleLofi()"></div>
+                    <div class="sound-row"><span class="sound-name">🌊 Ocean Waves</span>
+                        <div class="sound-toggle" id="snd-ocean" onclick="toggleAmbient('ocean',this)"></div>
                     </div>
-                    <div style="font-size:9px;color:var(--text3);margin-top:6px">Lo-fi is simulated via synthesized
-                        tones</div>
+                    <div class="sound-row"><span class="sound-name">🌲 Forest</span>
+                        <div class="sound-toggle" id="snd-forest" onclick="toggleAmbient('forest',this)"></div>
+                    </div>
+                    <div class="sound-row"><span class="sound-name">🔥 Fireplace</span>
+                        <div class="sound-toggle" id="snd-fire" onclick="toggleAmbient('fire',this)"></div>
+                    </div>
+                    <div class="sound-row"><span class="sound-name">☕ Café</span>
+                        <div class="sound-toggle" id="snd-cafe" onclick="toggleAmbient('cafe',this)"></div>
+                    </div>
+                    <div class="sound-row"><span class="sound-name">⌨️ Keyboard</span>
+                        <div class="sound-toggle" id="snd-keyboard" onclick="toggleAmbient('keyboard',this)"></div>
+                    </div>
+                    <div style="font-size:9px;color:var(--text3);margin-top:6px">Ambient sounds are synthesized</div>
                 </div>
             </div>
-
             <button class="add-btn" onclick="openModal()">＋ Drop a New Candy</button>
         </aside>
     </div>
@@ -3049,11 +3466,9 @@
         let sessionIntent = '';
         let sugarRushCount = 0;
         let currentTheme = 'default';
-        let delayCount = 0;
         let zenMode = false;
-        let lofiActive = false;
-        let lofiInterval = null;
         let candyColorIndex = 0;
+        let ownedShopItems = JSON.parse(localStorage.getItem('cj_shop_items') || '[]');
 
         // ── XP / COINS ─────────────────────────────────────────────────────────────────
         const XP_PER_SIZE = { tiny: 10, small: 20, medium: 35, large: 60, massive: 100 };
@@ -3064,19 +3479,15 @@
             const xpGain = XP_PER_SIZE[task.size] || 20;
             const coinGain = COIN_PER_SIZE[task.size] || 5;
             xpCurrent += xpGain; coins += coinGain;
-            localStorage.setItem('cj_xp', xpCurrent);
-            localStorage.setItem('cj_coins', coins);
-            showXPPopup(xpGain, coinGain);
-            updateXPBar(); updateCoinDisplay();
+            localStorage.setItem('cj_xp', xpCurrent); localStorage.setItem('cj_coins', coins);
+            showXPPopup(xpGain, coinGain); updateXPBar(); updateCoinDisplay();
         }
         function updateXPBar() {
-            const lv = getLevel(xpCurrent);
-            const pct = getXPInLevel(xpCurrent);
+            const lv = getLevel(xpCurrent); const pct = getXPInLevel(xpCurrent);
             document.getElementById('xpFill').style.width = pct + '%';
             document.getElementById('xpLevel').textContent = lv;
-            document.getElementById('xpCurrent').textContent = getXPInLevel(xpCurrent);
+            document.getElementById('xpCurrent').textContent = pct;
             document.getElementById('xpMax').textContent = 100;
-            document.getElementById('xpLevel').textContent = lv;
             document.getElementById('sidebarLevel').textContent = lv;
             document.getElementById('sidebarXPBar').style.width = pct + '%';
         }
@@ -3085,152 +3496,132 @@
             document.getElementById('sidebarCoins').textContent = coins;
         }
         function showXPPopup(xp, coin) {
-            const el = document.createElement('div');
-            el.className = 'xp-popup';
-            el.textContent = '+' + xp + ' XP';
+            const el = document.createElement('div'); el.className = 'xp-popup'; el.textContent = '+' + xp + ' XP';
             el.style.cssText = `left:${window.innerWidth / 2 - 30}px;top:${window.innerHeight / 2 - 60}px`;
-            document.body.appendChild(el);
-            setTimeout(() => el.remove(), 1200);
+            document.body.appendChild(el); setTimeout(() => el.remove(), 1200);
             if (coin) {
-                const cel = document.createElement('div');
-                cel.className = 'xp-popup';
-                cel.textContent = '+' + coin + ' 💰';
+                const cel = document.createElement('div'); cel.className = 'xp-popup'; cel.textContent = '+' + coin + ' 💰';
                 cel.style.cssText = `left:${window.innerWidth / 2 + 20}px;top:${window.innerHeight / 2 - 60}px;color:var(--coin-color)`;
-                document.body.appendChild(cel);
-                setTimeout(() => cel.remove(), 1200);
+                document.body.appendChild(cel); setTimeout(() => cel.remove(), 1200);
             }
         }
 
-        // ── SHOP ────────────────────────────────────────────────────────────────────────
-        const SHOP_ITEMS = [
-            { id: 'theme_neon', type: 'theme', name: 'Neon City Theme', desc: 'Electric cyberpunk vibes', icon: '🌃', price: 50, themeKey: 'neon' },
-            { id: 'theme_latte', type: 'theme', name: 'Latte Theme', desc: 'Warm cozy light mode', icon: '☕', price: 30, themeKey: 'latte' },
-            { id: 'theme_aurora', type: 'theme', name: 'Aurora Theme', desc: 'Northern lights palette', icon: '🌌', price: 50, themeKey: 'aurora' },
-            { id: 'theme_rose', type: 'theme', name: 'Rose Gold Theme', desc: 'Romantic and vibrant', icon: '🌹', price: 30, themeKey: 'rose' },
-            { id: 'theme_galaxy', type: 'theme', name: 'Galaxy Theme', desc: 'Deep space mystery', icon: '🔭', price: 80, themeKey: 'galaxy' },
-            { id: 'jar_gold', type: 'jar', name: 'Gold Jar', desc: 'A glittering golden jar', icon: '🏺', price: 100 },
-            { id: 'jar_crystal', type: 'jar', name: 'Crystal Jar', desc: 'Ultra-clear glass jar', icon: '💎', price: 150 },
-            { id: 'boost_2x', type: 'boost', name: '2x XP Boost', desc: 'Double XP for next 5 tasks', icon: '⚡', price: 40 },
-            { id: 'boost_coins', type: 'boost', name: 'Coin Magnet', desc: '+10 coins on next complete', icon: '🧲', price: 25 },
-        ];
-        let ownedShopItems = JSON.parse(localStorage.getItem('cj_shop_items') || '[]');
-        let activeBoosts = JSON.parse(localStorage.getItem('cj_boosts') || '{}');
+        // ── THEME SYSTEM (FIXED) ───────────────────────────────────────────────────────
+        const FREE_THEMES = ['default', 'midnight', 'forest', 'sunset', 'ocean', 'sakura'];
+        const PREMIUM_THEMES = ['neon', 'latte', 'aurora', 'rose', 'galaxy', 'candy', 'mint', 'ember', 'arctic', 'velvet'];
+        const THEME_PRICES = { neon: 50, latte: 30, aurora: 50, rose: 30, galaxy: 80, candy: 40, mint: 40, ember: 60, arctic: 35, velvet: 70 };
 
-        function openShop() {
-            document.getElementById('shopModal').classList.add('open');
-            renderShop();
+        function isPremiumThemeOwned(t) {
+            return ownedThemes.includes(t) || ownedShopItems.includes('theme_' + t);
         }
+        function refreshThemeLocks() {
+            PREMIUM_THEMES.forEach(t => {
+                const lockEl = document.getElementById('tlock-' + t);
+                if (lockEl) lockEl.textContent = isPremiumThemeOwned(t) ? '✓' : '🔒';
+            });
+        }
+        function tryPremiumTheme(t, el) {
+            if (isPremiumThemeOwned(t)) { setTheme(t, el); return; }
+            const price = THEME_PRICES[t] || 50;
+            showNotif('🔒', `"${t}" costs ${price}💰 — buy it in the Shop!`, 'var(--accent3)');
+            document.getElementById('themeDropdown').classList.remove('open');
+            setTimeout(() => openShop(), 400);
+        }
+
+        // ── SHOP (UPDATED WITH MORE ITEMS) ────────────────────────────────────────────
+        const SHOP_ITEMS = [
+            // Themes — require real grinding
+            { id: 'theme_neon', type: 'theme', name: 'Neon City', desc: 'Electric cyberpunk vibes', icon: '🌃', price: 200, themeKey: 'neon' },
+            { id: 'theme_latte', type: 'theme', name: 'Latte', desc: 'Warm cozy light mode', icon: '☕', price: 150, themeKey: 'latte' },
+            { id: 'theme_aurora', type: 'theme', name: 'Aurora', desc: 'Northern lights palette', icon: '🌌', price: 250, themeKey: 'aurora' },
+            { id: 'theme_rose', type: 'theme', name: 'Rose Gold', desc: 'Romantic & vibrant', icon: '🌹', price: 175, themeKey: 'rose' },
+            { id: 'theme_galaxy', type: 'theme', name: 'Galaxy', desc: 'Deep space mystery', icon: '🔭', price: 400, themeKey: 'galaxy' },
+            { id: 'theme_candy', type: 'theme', name: 'Candy Pop', desc: 'Sweet & ultra vibrant', icon: '🍭', price: 220, themeKey: 'candy' },
+            { id: 'theme_mint', type: 'theme', name: 'Mint Fresh', desc: 'Cool & clean green', icon: '🌿', price: 180, themeKey: 'mint' },
+            { id: 'theme_ember', type: 'theme', name: 'Ember', desc: 'Volcanic fire tones', icon: '🔥', price: 300, themeKey: 'ember' },
+            { id: 'theme_arctic', type: 'theme', name: 'Arctic', desc: 'Icy crystal blue', icon: '❄️', price: 190, themeKey: 'arctic' },
+            { id: 'theme_velvet', type: 'theme', name: 'Velvet', desc: 'Rich deep purple luxury', icon: '💜', price: 350, themeKey: 'velvet' },
+            // Jars — rare collectibles
+            { id: 'jar_gold', type: 'jar', name: 'Gold Jar', desc: 'Glittering legendary jar', icon: '🏺', price: 500 },
+            { id: 'jar_crystal', type: 'jar', name: 'Crystal Jar', desc: 'Prismatic ultra-clear glass', icon: '💎', price: 750 },
+            { id: 'jar_obsidian', type: 'jar', name: 'Obsidian Jar', desc: 'Rare dark volcanic glass', icon: '🖤', price: 600 },
+            // Boosts
+            { id: 'boost_2x', type: 'boost', name: '2× XP Boost', desc: 'Double XP for next 5 tasks', icon: '⚡', price: 120 },
+            { id: 'boost_coins', type: 'boost', name: 'Coin Magnet', desc: '+15 coins on every complete', icon: '🧲', price: 80 },
+            { id: 'boost_streak', type: 'boost', name: 'Streak Shield', desc: 'Protect your next streak loss', icon: '🛡️', price: 100 },
+            { id: 'boost_rare', type: 'boost', name: 'Rare Finder', desc: 'Next large task = rare candy', icon: '🎰', price: 150 },
+            // Cosmetics
+            { id: 'cos_sparkle', type: 'cosmetic', name: 'Mega Sparkles', desc: 'Triple sparkles on complete', icon: '✨', price: 90 },
+            { id: 'cos_rainbow', type: 'cosmetic', name: 'Rainbow Candy', desc: 'All candies get rainbow glow', icon: '🌈', price: 280 },
+            { id: 'cos_gold_wrap', type: 'cosmetic', name: 'Gold Wrapper', desc: 'Golden shine on all candies', icon: '🥇', price: 350 },
+            { id: 'cos_giant', type: 'cosmetic', name: 'Giant Mode', desc: 'Candies are 1.5× bigger', icon: '🔍', price: 200 },
+            // Music packs
+            { id: 'music_lofi', type: 'music', name: 'Lo-fi Pack', desc: 'Premium lo-fi collection', icon: '🎧', price: 130 },
+            { id: 'music_jazz', type: 'music', name: 'Jazz Pack', desc: 'Smooth late-night jazz', icon: '🎷', price: 130 },
+            { id: 'music_nature', type: 'music', name: 'Nature Pack', desc: 'Immersive soundscapes', icon: '🍃', price: 100 },
+            { id: 'music_epic', type: 'music', name: 'Epic Focus', desc: 'Cinematic concentration', icon: '🎼', price: 160 },
+        ];
+
+        function openShop() { document.getElementById('shopModal').classList.add('open'); renderShop(); }
         function closeShop() { document.getElementById('shopModal').classList.remove('open') }
         function renderShop() {
             document.getElementById('shopCoinDisplay').textContent = coins;
+            const grp = (type) => SHOP_ITEMS.filter(i => i.type === type);
             const content = document.getElementById('shopContent');
-            const themes = SHOP_ITEMS.filter(i => i.type === 'theme');
-            const jars = SHOP_ITEMS.filter(i => i.type === 'jar');
-            const boosts = SHOP_ITEMS.filter(i => i.type === 'boost');
             content.innerHTML = `
-  <div class="shop-section-title">🎨 Themes</div>
-  <div class="shop-grid">${themes.map(renderShopItem).join('')}</div>
-  <div class="shop-section-title">🫙 Special Jars (Coming Soon)</div>
-  <div class="shop-grid">${jars.map(renderShopItem).join('')}</div>
+  <div class="shop-section-title">🎨 Themes (unlock & use instantly)</div>
+  <div class="shop-grid">${grp('theme').map(renderShopItem).join('')}</div>
+  <div class="shop-section-title">🫙 Special Jars</div>
+  <div class="shop-grid">${grp('jar').map(renderShopItem).join('')}</div>
   <div class="shop-section-title">⚡ Boosts</div>
-  <div class="shop-grid">${boosts.map(renderShopItem).join('')}</div>`;
+  <div class="shop-grid">${grp('boost').map(renderShopItem).join('')}</div>
+  <div class="shop-section-title">✨ Cosmetics</div>
+  <div class="shop-grid">${grp('cosmetic').map(renderShopItem).join('')}</div>
+  <div class="shop-section-title">🎵 Music Packs</div>
+  <div class="shop-grid">${grp('music').map(renderShopItem).join('')}</div>`;
         }
         function renderShopItem(item) {
-            const owned = ownedShopItems.includes(item.id) ||
-                (item.type === 'theme' && ownedThemes.includes(item.themeKey || item.id));
+            const owned = ownedShopItems.includes(item.id) || (item.type === 'theme' && isPremiumThemeOwned(item.themeKey));
             const canAfford = coins >= item.price;
             return `<div class="shop-item ${owned ? 'owned' : ''} ${!canAfford && !owned ? 'cant-afford' : ''}">
-    ${owned ? '<div class="shop-owned-badge">✓</div>' : ''}
+    ${owned ? '<div class="shop-owned-badge">✓ Owned</div>' : ''}
     <span class="shop-icon">${item.icon}</span>
     <div class="shop-name">${item.name}</div>
     <div class="shop-desc">${item.desc}</div>
     <div class="shop-price">💰 ${item.price}</div>
     <button class="shop-buy-btn" onclick="buyItem('${item.id}')" ${owned ? 'disabled' : ''} ${!canAfford && !owned ? 'disabled' : ''}>
-      ${owned ? 'Owned' : 'Buy'}
+      ${owned ? 'Owned' : canAfford ? 'Buy' : 'Need ' + item.price + '💰'}
     </button>
   </div>`;
         }
         function buyItem(id) {
-            const item = SHOP_ITEMS.find(i => i.id === id);
-            if (!item) return;
-            const owned = ownedShopItems.includes(id) || (item.type === 'theme' && ownedThemes.includes(item.themeKey));
+            const item = SHOP_ITEMS.find(i => i.id === id); if (!item) return;
+            const owned = ownedShopItems.includes(id) || (item.type === 'theme' && isPremiumThemeOwned(item.themeKey));
             if (owned) return;
-            if (coins < item.price) { showNotif('❌', 'Not enough coins!', '#f09060'); return; }
-            coins -= item.price;
-            localStorage.setItem('cj_coins', coins);
-            updateCoinDisplay();
-            ownedShopItems.push(id);
-            localStorage.setItem('cj_shop_items', JSON.stringify(ownedShopItems));
+            if (coins < item.price) { showNotif('❌', 'Not enough coins! Earn more by completing tasks', '#f09060'); return; }
+            coins -= item.price; localStorage.setItem('cj_coins', coins); updateCoinDisplay();
+            ownedShopItems.push(id); localStorage.setItem('cj_shop_items', JSON.stringify(ownedShopItems));
             if (item.type === 'theme' && item.themeKey) {
                 ownedThemes.push(item.themeKey);
                 localStorage.setItem('cj_owned_themes', JSON.stringify(ownedThemes));
+                // Apply the theme immediately on purchase
+                const topt = document.getElementById('topt-' + item.themeKey);
+                if (topt) setTheme(item.themeKey, topt);
+                else { document.body.setAttribute('data-theme', item.themeKey); }
+                refreshThemeLocks();
             }
-            if (item.type === 'boost') {
-                activeBoosts[id] = (activeBoosts[id] || 0) + 1;
-                localStorage.setItem('cj_boosts', JSON.stringify(activeBoosts));
-            }
-            showNotif('🛒', item.name + ' unlocked!', 'var(--accent)');
+            showNotif(item.icon, item.name + ' unlocked!', 'var(--accent)');
             renderShop();
         }
 
         // ── CANDY CONFIG ───────────────────────────────────────────────────────────────
-        const CANDY_CONFIG = {
-            tiny: { label: 'Jellybean', w: 14, h: 9, scale: 0.7 },
-            small: { label: 'Drop', w: 18, h: 14, scale: 0.85 },
-            medium: { label: 'Wrapped', w: 26, h: 18, scale: 1.0 },
-            large: { label: 'Chocolate', w: 34, h: 13, scale: 1.2 },
-            massive: { label: 'Lollipop', w: 18, h: 38, scale: 1.5 }
-        };
-        const CANDY_COLORS = [
-            { h: '#f5a0c8', s: '#c8507a', glow: 'rgba(245,160,200,0.45)' },
-            { h: '#90b4f5', s: '#3060c0', glow: 'rgba(138,180,245,0.45)' },
-            { h: '#90d4a0', s: '#308050', glow: 'rgba(144,212,160,0.45)' },
-            { h: '#c8a0f0', s: '#7040c0', glow: 'rgba(192,160,240,0.45)' },
-            { h: '#f09080', s: '#c03020', glow: 'rgba(240,144,144,0.45)' },
-            { h: '#f0c060', s: '#c08020', glow: 'rgba(240,192,96,0.45)' },
-            { h: '#60d8d0', s: '#2080a0', glow: 'rgba(96,216,208,0.45)' },
-            { h: '#f080d0', s: '#a02080', glow: 'rgba(240,128,208,0.45)' },
-        ];
-        const MOOD_COLORS = {
-            fun: { h: '#f5a0c8', s: '#c8507a', glow: 'rgba(245,160,200,0.45)' },
-            study: { h: '#90b4f5', s: '#3060c0', glow: 'rgba(138,180,245,0.45)' },
-            health: { h: '#90d4a0', s: '#308050', glow: 'rgba(144,212,160,0.45)' },
-            creative: { h: '#c8a0f0', s: '#7040c0', glow: 'rgba(192,160,240,0.45)' },
-            urgent: { h: '#f09080', s: '#c03020', glow: 'rgba(240,144,144,0.45)' },
-            painful: { h: '#a090b0', s: '#302040', glow: 'rgba(144,112,144,0.45)' }
-        };
+        const CANDY_CONFIG = { tiny: { label: 'Jellybean', w: 14, h: 9, scale: 0.7 }, small: { label: 'Drop', w: 18, h: 14, scale: 0.85 }, medium: { label: 'Wrapped', w: 26, h: 18, scale: 1.0 }, large: { label: 'Chocolate', w: 34, h: 13, scale: 1.2 }, massive: { label: 'Lollipop', w: 18, h: 38, scale: 1.5 } };
+        const CANDY_COLORS = [{ h: '#f5a0c8', s: '#c8507a', glow: 'rgba(245,160,200,0.45)' }, { h: '#90b4f5', s: '#3060c0', glow: 'rgba(138,180,245,0.45)' }, { h: '#90d4a0', s: '#308050', glow: 'rgba(144,212,160,0.45)' }, { h: '#c8a0f0', s: '#7040c0', glow: 'rgba(192,160,240,0.45)' }, { h: '#f09080', s: '#c03020', glow: 'rgba(240,144,144,0.45)' }, { h: '#f0c060', s: '#c08020', glow: 'rgba(240,192,96,0.45)' }, { h: '#60d8d0', s: '#2080a0', glow: 'rgba(96,216,208,0.45)' }, { h: '#f080d0', s: '#a02080', glow: 'rgba(240,128,208,0.45)' }, { h: '#80e880', s: '#208040', glow: 'rgba(128,232,128,0.45)' }, { h: '#f0b040', s: '#c07010', glow: 'rgba(240,176,64,0.45)' }];
+        const MOOD_COLORS = { fun: { h: '#f5a0c8', s: '#c8507a', glow: 'rgba(245,160,200,0.45)' }, study: { h: '#90b4f5', s: '#3060c0', glow: 'rgba(138,180,245,0.45)' }, health: { h: '#90d4a0', s: '#308050', glow: 'rgba(144,212,160,0.45)' }, creative: { h: '#c8a0f0', s: '#7040c0', glow: 'rgba(192,160,240,0.45)' }, urgent: { h: '#f09080', s: '#c03020', glow: 'rgba(240,144,144,0.45)' }, painful: { h: '#a090b0', s: '#302040', glow: 'rgba(144,112,144,0.45)' } };
         const SIZE_EMOJIS = { tiny: '🟡', small: '🔵', medium: '🍬', large: '🍫', massive: '🍭' };
-        const FORTUNES = [
-            { icon: '🌟', quote: 'Small steps every day lead to extraordinary results.', author: '— CandyJar Wisdom' },
-            { icon: '🍀', quote: 'The secret of getting ahead is getting started.', author: '— Mark Twain' },
-            { icon: '🌙', quote: 'Rest is not idleness. A full jar tomorrow starts with rest today.', author: '— CandyJar Wisdom' },
-            { icon: '✨', quote: 'You are doing better than you think!', author: '— Your Jar' },
-            { icon: '🎯', quote: 'Focus on one candy at a time. The jar fills itself.', author: '— CandyJar Wisdom' },
-            { icon: '🌸', quote: 'Difficult tasks are rare candies in disguise.', author: '— Your Jar' },
-            { icon: '🔥', quote: 'The pain of discipline weighs ounces. The pain of regret weighs tons.', author: '— Jim Rohn' },
-            { icon: '💎', quote: 'Every completed task is a gem added to your collection.', author: '— Your Jar' },
-        ];
-        const MOOD_SUGGESTIONS = {
-            tired: '😴 Try tiny jellybeans — quick wins to wake you up!',
-            focused: '🎯 Perfect time for chocolate bars & lollipops. You\'re in the zone!',
-            lazy: '🦥 Grab a jellybean or drop. Small wins, big mood!',
-            energetic: '⚡ Attack those massive lollipops! You\'ve got the energy!',
-            stressed: '😤 Start with something fun or health-tagged to ease in.'
-        };
-        const COLLECTION_ITEMS = [
-            { id: 'jellybean', name: 'Jellybean', emoji: '🟡', desc: 'Complete 1 tiny task', req: 1, type: 'tiny' },
-            { id: 'drop', name: 'Drop', emoji: '💧', desc: 'Complete 3 small tasks', req: 3, type: 'small' },
-            { id: 'wrapped', name: 'Wrapped Candy', emoji: '🍬', desc: 'Complete 5 medium tasks', req: 5, type: 'medium' },
-            { id: 'choco', name: 'Chocolate Bar', emoji: '🍫', desc: 'Complete 3 large tasks', req: 3, type: 'large' },
-            { id: 'lollipop', name: 'Lollipop', emoji: '🍭', desc: 'Complete 1 massive task', req: 1, type: 'massive' },
-            { id: 'golden', name: 'Golden Candy', emoji: '✨', desc: '10 task streak', req: 10, type: 'streak' },
-            { id: 'rainbow', name: 'Rainbow Pop', emoji: '🌈', desc: 'Complete all moods', req: 6, type: 'mood' },
-            { id: 'midnight', name: 'Midnight Drop', emoji: '🌙', desc: 'Complete 20 tasks total', req: 20, type: 'total' },
-            { id: 'crystal', name: 'Crystal Gem', emoji: '💎', desc: '30 tasks total', req: 30, type: 'total' },
-            { id: 'star', name: 'Star Candy', emoji: '⭐', desc: '50 tasks total', req: 50, type: 'total' },
-            { id: 'heart', name: 'Heart Pop', emoji: '❤️', desc: '5 sugar rushes', req: 5, type: 'rush' },
-            { id: 'galaxy', name: 'Galaxy Jar', emoji: '🌌', desc: '100 tasks total', req: 100, type: 'total' },
-        ];
+        const FORTUNES = [{ icon: '🌟', quote: 'Small steps every day lead to extraordinary results.', author: '— CandyJar Wisdom' }, { icon: '🍀', quote: 'The secret of getting ahead is getting started.', author: '— Mark Twain' }, { icon: '🌙', quote: 'Rest is not idleness. A full jar tomorrow starts with rest today.', author: '— CandyJar Wisdom' }, { icon: '✨', quote: 'You are doing better than you think!', author: '— Your Jar' }, { icon: '🎯', quote: 'Focus on one candy at a time. The jar fills itself.', author: '— CandyJar Wisdom' }, { icon: '🌸', quote: 'Difficult tasks are rare candies in disguise.', author: '— Your Jar' }, { icon: '🔥', quote: 'The pain of discipline weighs ounces. The pain of regret weighs tons.', author: '— Jim Rohn' }, { icon: '💎', quote: 'Every completed task is a gem added to your collection.', author: '— Your Jar' }, { icon: '🌈', quote: 'After every storm comes a rainbow. After every task, a candy.', author: '— CandyJar Wisdom' }, { icon: '⚡', quote: 'You have survived 100% of your hardest days.', author: '— Your Jar' }];
+        const MOOD_SUGGESTIONS = { tired: '😴 Try tiny jellybeans — quick wins to wake you up!', focused: '🎯 Perfect time for chocolate bars & lollipops. You\'re in the zone!', lazy: '🦥 Grab a jellybean or drop. Small wins, big mood!', energetic: '⚡ Attack those massive lollipops! You\'ve got the energy!', stressed: '😤 Start with something fun or health-tagged to ease in.' };
+        const COLLECTION_ITEMS = [{ id: 'jellybean', name: 'Jellybean', emoji: '🟡', desc: 'Complete 1 tiny task', req: 1, type: 'tiny' }, { id: 'drop', name: 'Drop', emoji: '💧', desc: 'Complete 3 small tasks', req: 3, type: 'small' }, { id: 'wrapped', name: 'Wrapped Candy', emoji: '🍬', desc: 'Complete 5 medium tasks', req: 5, type: 'medium' }, { id: 'choco', name: 'Chocolate Bar', emoji: '🍫', desc: 'Complete 3 large tasks', req: 3, type: 'large' }, { id: 'lollipop', name: 'Lollipop', emoji: '🍭', desc: 'Complete 1 massive task', req: 1, type: 'massive' }, { id: 'golden', name: 'Golden Candy', emoji: '✨', desc: '10 task streak', req: 10, type: 'streak' }, { id: 'rainbow', name: 'Rainbow Pop', emoji: '🌈', desc: 'Complete all moods', req: 6, type: 'mood' }, { id: 'midnight', name: 'Midnight Drop', emoji: '🌙', desc: 'Complete 20 tasks total', req: 20, type: 'total' }, { id: 'crystal', name: 'Crystal Gem', emoji: '💎', desc: '30 tasks total', req: 30, type: 'total' }, { id: 'star', name: 'Star Candy', emoji: '⭐', desc: '50 tasks total', req: 50, type: 'total' }, { id: 'heart', name: 'Heart Pop', emoji: '❤️', desc: '5 sugar rushes', req: 5, type: 'rush' }, { id: 'galaxy', name: 'Galaxy Jar', emoji: '🌌', desc: '100 tasks total', req: 100, type: 'total' }];
 
         // ── AUDIO ──────────────────────────────────────────────────────────────────────
         let audioCtx = null;
@@ -3238,126 +3629,220 @@
         function playTone(freq, type, dur, vol) {
             if (!soundEnabled) return;
             try {
-                const ctx = getAudioCtx();
-                const osc = ctx.createOscillator(); const gain = ctx.createGain();
-                osc.connect(gain); gain.connect(ctx.destination);
-                osc.type = type; osc.frequency.setValueAtTime(freq, ctx.currentTime);
-                gain.gain.setValueAtTime(vol * masterVol, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+                const ctx = getAudioCtx(); const osc = ctx.createOscillator(); const gain = ctx.createGain();
+                osc.connect(gain); gain.connect(ctx.destination); osc.type = type; osc.frequency.setValueAtTime(freq, ctx.currentTime);
+                gain.gain.setValueAtTime(vol * masterVol, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
                 osc.start(ctx.currentTime); osc.stop(ctx.currentTime + dur);
             } catch (e) { }
         }
-        function playDrop() {
-            if (!document.getElementById('snd-drop').classList.contains('on')) return;
-            playTone(800, 'sine', 0.08, 0.15);
-            setTimeout(() => playTone(600, 'sine', 0.12, 0.12), 80);
-            setTimeout(() => playTone(400, 'sine', 0.15, 0.1), 160);
-        }
-        function playComplete() {
-            if (!document.getElementById('snd-complete').classList.contains('on')) return;
-            [523, 659, 784, 1047].forEach((f, i) => setTimeout(() => playTone(f, 'triangle', 0.25, 0.18), i * 80));
-        }
-        function playShake() {
-            if (!document.getElementById('snd-shake').classList.contains('on')) return;
-            for (let i = 0; i < 6; i++)setTimeout(() => playTone(200 + Math.random() * 300, 'sawtooth', 0.05, 0.08), i * 60);
-        }
-        function playRush() {
-            if (!document.getElementById('snd-rush').classList.contains('on')) return;
-            [400, 500, 600, 700, 800, 1000, 1200].forEach((f, i) => setTimeout(() => playTone(f, 'square', 0.15, 0.12), i * 50));
-        }
-        function playBell() {
-            if (!document.getElementById('snd-bell').classList.contains('on')) return;
-            // Tibetan bowl-like tone
-            playTone(528, 'sine', 3, 0.35);
-            setTimeout(() => playTone(660, 'sine', 2.5, 0.2), 100);
-            setTimeout(() => playTone(440, 'sine', 2, 0.15), 200);
-        }
-        function playBreakBell() {
-            playTone(396, 'sine', 3, 0.3);
-            setTimeout(() => playTone(528, 'sine', 2.5, 0.25), 300);
-        }
-        function toggleLofi() {
-            const tog = document.getElementById('snd-lofi');
-            tog.classList.toggle('on');
-            lofiActive = tog.classList.contains('on');
-            if (lofiActive) { startLofi(); } else { stopLofi(); }
-        }
-        function startLofi() {
-            if (!soundEnabled) return;
-            const notes = [261, 294, 330, 349, 392, 440, 494, 523];
-            lofiInterval = setInterval(() => {
-                if (!lofiActive || !soundEnabled) { clearInterval(lofiInterval); return; }
-                const note = notes[Math.floor(Math.random() * notes.length)];
-                playTone(note, 'sine', 0.4, 0.04);
-                if (Math.random() < 0.3) playTone(note * 1.5, 'triangle', 0.3, 0.02);
-            }, 600);
-        }
-        function stopLofi() { clearInterval(lofiInterval); }
+        function playDrop() { if (!document.getElementById('snd-drop').classList.contains('on')) return; playTone(800, 'sine', 0.08, 0.15); setTimeout(() => playTone(600, 'sine', 0.12, 0.12), 80); setTimeout(() => playTone(400, 'sine', 0.15, 0.1), 160) }
+        function playComplete() { if (!document.getElementById('snd-complete').classList.contains('on')) return;[523, 659, 784, 1047].forEach((f, i) => setTimeout(() => playTone(f, 'triangle', 0.25, 0.18), i * 80)) }
+        function playShake() { for (let i = 0; i < 6; i++)setTimeout(() => playTone(200 + Math.random() * 300, 'sawtooth', 0.05, 0.08), i * 60) }
+        function playRush() { if (!document.getElementById('snd-rush').classList.contains('on')) return;[400, 500, 600, 700, 800, 1000, 1200].forEach((f, i) => setTimeout(() => playTone(f, 'square', 0.15, 0.12), i * 50)) }
+        function playBell() { if (!document.getElementById('snd-bell').classList.contains('on')) return; playTone(528, 'sine', 3, 0.35); setTimeout(() => playTone(660, 'sine', 2.5, 0.2), 100); setTimeout(() => playTone(440, 'sine', 2, 0.15), 200) }
+        function playBreakBell() { playTone(396, 'sine', 3, 0.3); setTimeout(() => playTone(528, 'sine', 2.5, 0.25), 300) }
         function setVolume(v) { masterVol = v / 100; document.getElementById('volDisplay').textContent = v + '%' }
         function toggleSndToggle(el) { el.classList.toggle('on') }
-        function toggleSound() {
-            soundEnabled = !soundEnabled;
-            document.getElementById('soundBtn').textContent = soundEnabled ? '🔊 Sound' : '🔇 Sound';
-            document.getElementById('soundBtn').classList.toggle('active', soundEnabled);
+        function toggleSound() { soundEnabled = !soundEnabled; document.getElementById('soundBtn').textContent = soundEnabled ? '🔊' : '🔇'; document.getElementById('soundBtn').classList.toggle('active', soundEnabled) }
+
+        // ── AMBIENT SOUND ENGINE ──────────────────────────────────────────────────────
+        let ambientNodes = {};
+        let musicVol = 0.5;
+        function toggleAmbient(type, el) {
+            el.classList.toggle('on');
+            if (el.classList.contains('on')) startAmbient(type);
+            else stopAmbient(type);
+        }
+        function startAmbient(type) {
+            stopAmbient(type);
+            const ctx = getAudioCtx();
+            const nodes = {};
+            if (type === 'ocean') {
+                const buf = ctx.createBuffer(1, ctx.sampleRate * 4, ctx.sampleRate);
+                const data = buf.getChannelData(0);
+                for (let i = 0; i < data.length; i++)data[i] = Math.random() * 2 - 1;
+                const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+                const filter = ctx.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 400;
+                const gain = ctx.createGain(); gain.gain.value = 0.08 * musicVol;
+                src.connect(filter); filter.connect(gain); gain.connect(ctx.destination); src.start();
+                nodes = { src, gain };
+            } else if (type === 'forest') {
+                // chirp intervals
+                const gain = ctx.createGain(); gain.gain.value = 0.04 * musicVol; gain.connect(ctx.destination);
+                const iv = setInterval(() => {
+                    if (!ambientNodes[type]) return clearInterval(iv);
+                    const f = 800 + Math.random() * 400; playToneToGain(f, 'sine', 0.08, 0.06, gain);
+                    setTimeout(() => playToneToGain(f * 1.2, 'sine', 0.06, 0.04, gain), 80);
+                }, 500 + Math.random() * 1000);
+                nodes = { gain, iv };
+            } else if (type === 'fire') {
+                const buf = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
+                const data = buf.getChannelData(0); for (let i = 0; i < data.length; i++)data[i] = (Math.random() * 2 - 1) * 0.5;
+                const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+                const filter = ctx.createBiquadFilter(); filter.type = 'bandpass'; filter.frequency.value = 200; filter.Q.value = 0.5;
+                const gain = ctx.createGain(); gain.gain.value = 0.06 * musicVol;
+                src.connect(filter); filter.connect(gain); gain.connect(ctx.destination); src.start();
+                nodes = { src, gain };
+            } else if (type === 'cafe') {
+                const gain = ctx.createGain(); gain.gain.value = 0.03 * musicVol; gain.connect(ctx.destination);
+                const iv = setInterval(() => {
+                    if (!ambientNodes[type]) return clearInterval(iv);
+                    const f = 300 + Math.random() * 200; playToneToGain(f, 'sine', 0.1 + Math.random() * 0.2, 0.02, gain);
+                }, 200 + Math.random() * 600);
+                nodes = { gain, iv };
+            } else if (type === 'keyboard') {
+                const gain = ctx.createGain(); gain.gain.value = 0.04 * musicVol; gain.connect(ctx.destination);
+                const iv = setInterval(() => {
+                    if (!ambientNodes[type]) return clearInterval(iv);
+                    const f = 2000 + Math.random() * 500; playToneToGain(f, 'square', 0.02, 0.05, gain);
+                }, 80 + Math.random() * 150);
+                nodes = { gain, iv };
+            }
+            ambientNodes[type] = nodes;
+        }
+        function playToneToGain(freq, type, dur, vol, destGain) {
+            try {
+                const ctx = getAudioCtx(); const osc = ctx.createOscillator(); const g = ctx.createGain();
+                osc.connect(g); g.connect(destGain); osc.type = type; osc.frequency.value = freq;
+                g.gain.setValueAtTime(vol, ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+                osc.start(ctx.currentTime); osc.stop(ctx.currentTime + dur);
+            } catch (e) { }
+        }
+        function stopAmbient(type) {
+            const n = ambientNodes[type]; if (!n) return;
+            try { if (n.src) n.src.stop(); if (n.gain) n.gain.disconnect(); if (n.iv) clearInterval(n.iv); } catch (e) { }
+            delete ambientNodes[type];
+        }
+        function setMusicVol(v) { musicVol = v / 100; document.getElementById('musicVolDisplay').textContent = v + '%' }
+
+        // ── MUSIC PLAYER ───────────────────────────────────────────────────────────────
+        const TRACKS = [
+            { name: 'Cozy Rain ☔', desc: 'Soft lo-fi with rain', genre: 'lofi', notes: [261, 294, 330, 349, 392], tempo: 900, waveform: 'triangle', chord: [261, 329, 392] },
+            { name: 'Study Breeze 📚', desc: 'Calm focus beats', genre: 'lofi', notes: [220, 247, 261, 294, 330], tempo: 800, waveform: 'sine', chord: [220, 277, 330] },
+            { name: 'Night Garden 🌙', desc: 'Dreamy evening', genre: 'ambient', notes: [196, 220, 247, 261, 294], tempo: 1200, waveform: 'sine', chord: [196, 247, 294] },
+            { name: 'Coffee Shop ☕', desc: 'Warm café vibes', genre: 'jazz', notes: [293, 329, 370, 415, 440], tempo: 700, waveform: 'triangle', chord: [293, 370, 440] },
+            { name: 'Focus Flow 🎯', desc: 'Pure concentration', genre: 'electronic', notes: [349, 392, 440, 494, 523], tempo: 600, waveform: 'sawtooth', chord: [349, 440, 523] },
+            { name: 'Pixel Dreams 🕹️', desc: 'Chiptune lo-fi', genre: 'chiptune', notes: [523, 587, 659, 698, 784], tempo: 500, waveform: 'square', chord: [523, 659, 784] },
+            { name: 'Ocean Drift 🌊', desc: 'Floating waves', genre: 'ambient', notes: [174, 196, 220, 247, 261], tempo: 1400, waveform: 'sine', chord: [174, 220, 261] },
+            { name: 'Autumn Walk 🍂', desc: 'Mellow autumn feels', genre: 'acoustic', notes: [261, 294, 330, 370, 415], tempo: 1000, waveform: 'triangle', chord: [261, 330, 415] },
+            { name: 'Midnight Jazz 🎷', desc: 'Late night sax', genre: 'jazz', notes: [233, 261, 311, 349, 392], tempo: 750, waveform: 'triangle', chord: [233, 311, 392] },
+            { name: 'Galaxy Haze 🌌', desc: 'Deep space ambient', genre: 'ambient', notes: [130, 146, 164, 174, 196], tempo: 1600, waveform: 'sine', chord: [130, 164, 196] },
+            { name: 'Cherry Blossom 🌸', desc: 'Soft Japanese vibes', genre: 'lofi', notes: [293, 330, 392, 440, 494], tempo: 950, waveform: 'sine', chord: [293, 392, 494] },
+            { name: 'Electric Dawn ⚡', desc: 'Energetic morning', genre: 'electronic', notes: [392, 440, 494, 523, 587], tempo: 550, waveform: 'sawtooth', chord: [392, 494, 587] },
+        ];
+        let musicPlaying = false, musicLoop = true, currentTrackIdx = 0, musicInterval = null, noteIdx = 0, musicBeat = 0, musicStartTime = 0;
+
+        function renderTrackList() {
+            const el = document.getElementById('musicTrackList');
+            el.innerHTML = TRACKS.map((t, i) => `
+  <div class="music-track-item ${i === currentTrackIdx ? 'active' : ''}" onclick="selectTrack(${i})">
+    <span class="music-track-icon">${['🎵', '🎶', '🎹', '🎸', '🎷', '🎺', '🎻', '🥁'][i % 8]}</span>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:11px;color:${i === currentTrackIdx ? 'var(--accent)' : 'var(--text)'};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${t.name}</div>
+      <div style="font-size:9px;color:var(--text3)">${t.genre} · ${t.desc}</div>
+    </div>
+    ${i === currentTrackIdx && musicPlaying ? '<span style="font-size:9px;color:var(--accent)">▶</span>' : ''}
+  </div>`).join('');
+        }
+        function selectTrack(i) {
+            const wasPlaying = musicPlaying;
+            stopMusic();
+            currentTrackIdx = i;
+            document.getElementById('musicTrackName').textContent = TRACKS[i].name;
+            renderTrackList();
+            if (wasPlaying) startMusic();
+        }
+        function toggleMusic() {
+            if (musicPlaying) stopMusic();
+            else startMusic();
+        }
+        function startMusic() {
+            stopMusic();
+            musicPlaying = true;
+            document.getElementById('musicPlayBtn').textContent = '⏸';
+            const track = TRACKS[currentTrackIdx];
+            noteIdx = 0; musicBeat = 0; musicStartTime = Date.now();
+            document.getElementById('musicTrackName').textContent = track.name;
+            function playNextNote() {
+                if (!musicPlaying) return;
+                const ctx = getAudioCtx();
+                const n = track.notes[noteIdx % track.notes.length];
+                // Melody note
+                const osc = ctx.createOscillator(); const g = ctx.createGain();
+                osc.connect(g); g.connect(ctx.destination); osc.type = track.waveform; osc.frequency.value = n;
+                const vol = musicVol * 0.08;
+                g.gain.setValueAtTime(vol, ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + track.tempo / 900);
+                osc.start(ctx.currentTime); osc.stop(ctx.currentTime + track.tempo / 900);
+                // Occasional chord
+                if (noteIdx % 4 === 0 && track.chord) {
+                    track.chord.forEach((cf, ci) => {
+                        const co = ctx.createOscillator(); const cg = ctx.createGain();
+                        co.connect(cg); cg.connect(ctx.destination); co.type = 'sine'; co.frequency.value = cf / 2;
+                        cg.gain.setValueAtTime(musicVol * 0.03, ctx.currentTime); cg.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + track.tempo / 400);
+                        co.start(ctx.currentTime); co.stop(ctx.currentTime + track.tempo / 400);
+                    });
+                }
+                noteIdx++;
+                // Update progress
+                const elapsed = (Date.now() - musicStartTime) / 1000;
+                const totalDur = track.notes.length * (track.tempo / 1000) * 4;
+                const pct = Math.min(100, (elapsed / totalDur) * 100);
+                document.getElementById('musicProgressFill').style.width = pct + '%';
+                const ms = Math.floor(elapsed % 60), mm = Math.floor(elapsed / 60);
+                document.getElementById('musicCurrent').textContent = mm + ':' + (ms < 10 ? '0' : '') + ms;
+                const td = track.notes.length * (track.tempo / 1000) * 4;
+                const tm = Math.floor(td / 60), ts = Math.floor(td % 60);
+                document.getElementById('musicTotal').textContent = tm + ':' + (ts < 10 ? '0' : '') + ts;
+                // Loop or next
+                if (noteIdx >= track.notes.length * 8) {
+                    if (musicLoop) { noteIdx = 0; musicStartTime = Date.now(); }
+                    else if (currentTrackIdx < TRACKS.length - 1) { selectTrack(currentTrackIdx + 1); return; }
+                    else { stopMusic(); return; }
+                }
+                musicInterval = setTimeout(playNextNote, track.tempo);
+            }
+            playNextNote();
+            renderTrackList();
+        }
+        function stopMusic() {
+            musicPlaying = false;
+            if (musicInterval) { clearTimeout(musicInterval); musicInterval = null; }
+            document.getElementById('musicPlayBtn').textContent = '▶';
+            document.getElementById('musicProgressFill').style.width = '0%';
+            renderTrackList();
+        }
+        function prevTrack() { selectTrack((currentTrackIdx - 1 + TRACKS.length) % TRACKS.length) }
+        function nextTrack() { selectTrack((currentTrackIdx + 1) % TRACKS.length) }
+        function toggleLoop() { musicLoop = !musicLoop; document.getElementById('musicLoopBtn').style.color = musicLoop ? 'var(--accent)' : 'var(--text3)' }
+        function seekMusic(e) {
+            const bar = e.currentTarget; const pct = e.offsetX / bar.offsetWidth;
+            musicStartTime = Date.now() - pct * TRACKS[currentTrackIdx].notes.length * (TRACKS[currentTrackIdx].tempo / 1000) * 4 * 1000;
+            noteIdx = Math.floor(pct * TRACKS[currentTrackIdx].notes.length * 8);
         }
 
         // ── CANVASES ───────────────────────────────────────────────────────────────────
-        const dustCanvas = document.getElementById('dustCanvas');
-        const dustCtx = dustCanvas.getContext('2d');
-        const rainCanvas = document.getElementById('rainCanvas');
-        const rainCtx = rainCanvas.getContext('2d');
+        const dustCanvas = document.getElementById('dustCanvas'), dustCtx = dustCanvas.getContext('2d');
+        const rainCanvas = document.getElementById('rainCanvas'), rainCtx = rainCanvas.getContext('2d');
         function resizeCvs() { dustCanvas.width = rainCanvas.width = window.innerWidth; dustCanvas.height = rainCanvas.height = window.innerHeight }
         resizeCvs(); window.addEventListener('resize', resizeCvs);
         const dustP = Array.from({ length: 60 }, () => ({ x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight, r: Math.random() * 1.8 + 0.3, vx: (Math.random() - 0.5) * 0.18, vy: -(Math.random() * 0.12 + 0.03), op: Math.random() * 0.45 + 0.08 }));
-        function animateDust() { dustCtx.clearRect(0, 0, dustCanvas.width, dustCanvas.height); dustP.forEach(p => { p.x += p.vx; p.y += p.vy; if (p.y < 0) p.y = dustCanvas.height; if (p.x < 0) p.x = dustCanvas.width; if (p.x > dustCanvas.width) p.x = 0; dustCtx.beginPath(); dustCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2); dustCtx.fillStyle = `rgba(200,180,240,${p.op})`; dustCtx.fill(); }); requestAnimationFrame(animateDust); }
-        animateDust();
+        function animateDust() { dustCtx.clearRect(0, 0, dustCanvas.width, dustCanvas.height); dustP.forEach(p => { p.x += p.vx; p.y += p.vy; if (p.y < 0) p.y = dustCanvas.height; if (p.x < 0) p.x = dustCanvas.width; if (p.x > dustCanvas.width) p.x = 0; dustCtx.beginPath(); dustCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2); dustCtx.fillStyle = `rgba(200,180,240,${p.op})`; dustCtx.fill(); }); requestAnimationFrame(animateDust); } animateDust();
         const rainD = Array.from({ length: 130 }, () => ({ x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight, l: Math.random() * 14 + 7, v: Math.random() * 3.5 + 5.5, op: Math.random() * 0.28 + 0.08 }));
-        function animateRain() {
-            if (!rainEnabled) { rainCtx.clearRect(0, 0, rainCanvas.width, rainCanvas.height); requestAnimationFrame(animateRain); return }
-            rainCtx.clearRect(0, 0, rainCanvas.width, rainCanvas.height);
-            rainD.forEach(d => { d.y += d.v; d.x += d.v * 0.14; if (d.y > rainCanvas.height) { d.y = -d.l; d.x = Math.random() * rainCanvas.width } rainCtx.beginPath(); rainCtx.moveTo(d.x, d.y); rainCtx.lineTo(d.x + d.l * 0.12, d.y + d.l); rainCtx.strokeStyle = `rgba(180,200,255,${d.op})`; rainCtx.lineWidth = 0.7; rainCtx.stroke(); });
-            requestAnimationFrame(animateRain);
-        } animateRain();
+        function animateRain() { if (!rainEnabled) { rainCtx.clearRect(0, 0, rainCanvas.width, rainCanvas.height); requestAnimationFrame(animateRain); return } rainCtx.clearRect(0, 0, rainCanvas.width, rainCanvas.height); rainD.forEach(d => { d.y += d.v; d.x += d.v * 0.14; if (d.y > rainCanvas.height) { d.y = -d.l; d.x = Math.random() * rainCanvas.width } rainCtx.beginPath(); rainCtx.moveTo(d.x, d.y); rainCtx.lineTo(d.x + d.l * 0.12, d.y + d.l); rainCtx.strokeStyle = `rgba(180,200,255,${d.op})`; rainCtx.lineWidth = 0.7; rainCtx.stroke(); }); requestAnimationFrame(animateRain); } animateRain();
 
         // ── DATE / CLOCK ───────────────────────────────────────────────────────────────
-        function updateClock() {
-            const now = new Date();
-            document.getElementById('clockDisplay').textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            const hr = now.getHours();
-            let greeting = 'cozy evening energy';
-            if (hr < 6) greeting = 'late night grind 🌙';
-            else if (hr < 12) greeting = 'good morning ☀️';
-            else if (hr < 17) greeting = 'afternoon focus 🎯';
-            else if (hr < 20) greeting = 'evening wind-down 🌅';
-            document.getElementById('clockGreeting').textContent = greeting;
-        }
-        function updateDateDisplay() {
-            const now = new Date();
-            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            document.getElementById('dateDisplay').textContent = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
-            document.getElementById('dayBadge').textContent = days[now.getDay()];
-        }
+        function updateClock() { const now = new Date(); document.getElementById('clockDisplay').textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); const hr = now.getHours(); let g = 'cozy evening energy'; if (hr < 6) g = 'late night grind 🌙'; else if (hr < 12) g = 'good morning ☀️'; else if (hr < 17) g = 'afternoon focus 🎯'; else if (hr < 20) g = 'evening wind-down 🌅'; document.getElementById('clockGreeting').textContent = g; }
+        function updateDateDisplay() { const now = new Date(); const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; document.getElementById('dateDisplay').textContent = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`; document.getElementById('dayBadge').textContent = days[now.getDay()]; }
         setInterval(updateClock, 1000); updateClock(); updateDateDisplay();
 
         // ── CANDY DRAWING ──────────────────────────────────────────────────────────────
-        function getCandyColor(task, colorIdx) {
-            // Use unique color per candy for variety
-            const cc = CANDY_COLORS[colorIdx % CANDY_COLORS.length];
-            return cc;
-        }
         function drawCandy(task) {
-            const cfg = CANDY_CONFIG[task.size];
-            const col = task.candyColor || MOOD_COLORS[task.mood];
-            const sc = cfg.scale;
-            const cvs = document.createElement('canvas');
-            const dpr = window.devicePixelRatio || 1;
+            const cfg = CANDY_CONFIG[task.size]; const col = task.candyColor || MOOD_COLORS[task.mood]; const sc = cfg.scale;
+            const cvs = document.createElement('canvas'); const dpr = window.devicePixelRatio || 1;
             const bw = Math.round((cfg.w + 18) * sc), bh = Math.round((cfg.h + 18) * sc);
-            cvs.width = bw * dpr; cvs.height = bh * dpr;
-            cvs.style.width = bw + 'px'; cvs.style.height = bh + 'px';
+            cvs.width = bw * dpr; cvs.height = bh * dpr; cvs.style.width = bw + 'px'; cvs.style.height = bh + 'px';
             const ctx = cvs.getContext('2d'); ctx.scale(dpr * sc, dpr * sc);
-            const bwS = (cfg.w + 18), bhS = (cfg.h + 18);
-            const cx = bwS / 2, cy = bhS / 2;
+            const bwS = (cfg.w + 18), bhS = (cfg.h + 18); const cx = bwS / 2, cy = bhS / 2;
             if (task.size === 'tiny' || task.size === 'small') {
                 ctx.save(); ctx.translate(cx, cy);
                 const g = ctx.createLinearGradient(-cfg.w / 2, -cfg.h / 2, cfg.w / 2, cfg.h / 2);
@@ -3368,15 +3853,9 @@
                 ctx.restore();
             } else if (task.size === 'medium') {
                 const r = cfg.w / 2, rh = cfg.h / 2;
-                const g = ctx.createLinearGradient(cx - r, cy, cx + r, cy);
-                g.addColorStop(0, col.s); g.addColorStop(0.5, col.h); g.addColorStop(1, col.s);
+                const g = ctx.createLinearGradient(cx - r, cy, cx + r, cy); g.addColorStop(0, col.s); g.addColorStop(0.5, col.h); g.addColorStop(1, col.s);
                 ctx.beginPath(); ctx.ellipse(cx, cy, r, rh, 0, 0, Math.PI * 2); ctx.fillStyle = g; ctx.fill();
-                [0, 1].forEach(i => {
-                    const sx = i === 0 ? cx - r - 5 : cx + r + 5; const ex = i === 0 ? cx - r : cx + r;
-                    ctx.beginPath(); ctx.moveTo(ex, cy - rh + 2); ctx.bezierCurveTo(sx, cy - rh, sx, cy + rh, ex, cy + rh - 2);
-                    ctx.strokeStyle = col.s; ctx.lineWidth = 5.5; ctx.stroke();
-                    ctx.strokeStyle = 'rgba(255,255,255,0.25)'; ctx.lineWidth = 2.2; ctx.stroke();
-                });
+                [0, 1].forEach(i => { const sx = i === 0 ? cx - r - 5 : cx + r + 5; const ex = i === 0 ? cx - r : cx + r; ctx.beginPath(); ctx.moveTo(ex, cy - rh + 2); ctx.bezierCurveTo(sx, cy - rh, sx, cy + rh, ex, cy + rh - 2); ctx.strokeStyle = col.s; ctx.lineWidth = 5.5; ctx.stroke(); ctx.strokeStyle = 'rgba(255,255,255,0.25)'; ctx.lineWidth = 2.2; ctx.stroke(); });
                 ctx.beginPath(); ctx.ellipse(cx - r * 0.22, cy - rh * 0.28, r * 0.28, rh * 0.2, 0, 0, Math.PI * 2); ctx.fillStyle = 'rgba(255,255,255,0.45)'; ctx.fill();
                 if (task.rare) { ctx.fillStyle = '#ffd700'; ctx.font = 'bold 8px sans-serif'; ctx.textAlign = 'center'; ctx.fillText('✦', cx, cy + 3) }
             } else if (task.size === 'large') {
@@ -3384,832 +3863,193 @@
                 g.addColorStop(0, 'rgba(255,255,255,0.25)'); g.addColorStop(0.3, col.h); g.addColorStop(1, col.s);
                 ctx.beginPath(); ctx.roundRect(cx - cfg.w / 2, cy - cfg.h / 2, cfg.w, cfg.h, 3.5); ctx.fillStyle = g; ctx.fill();
                 ctx.strokeStyle = 'rgba(0,0,0,0.18)'; ctx.lineWidth = 0.6; ctx.stroke();
-                const seg = cfg.w / 3;
-                for (let i = 1; i < 3; i++) { ctx.beginPath(); ctx.moveTo(cx - cfg.w / 2 + seg * i, cy - cfg.h / 2 + 2.5); ctx.lineTo(cx - cfg.w / 2 + seg * i, cy + cfg.h / 2 - 2.5); ctx.strokeStyle = 'rgba(0,0,0,0.16)'; ctx.lineWidth = 0.9; ctx.stroke(); }
+                const seg = cfg.w / 3; for (let i = 1; i < 3; i++) { ctx.beginPath(); ctx.moveTo(cx - cfg.w / 2 + seg * i, cy - cfg.h / 2 + 2.5); ctx.lineTo(cx - cfg.w / 2 + seg * i, cy + cfg.h / 2 - 2.5); ctx.strokeStyle = 'rgba(0,0,0,0.16)'; ctx.lineWidth = 0.9; ctx.stroke(); }
                 ctx.beginPath(); ctx.roundRect(cx - cfg.w / 2 + 3, cy - cfg.h / 2 + 2, cfg.w * 0.28, cfg.h * 0.32, 2); ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.fill();
             } else {
-                const lw = 13;
-                ctx.beginPath(); ctx.moveTo(cx + 1, cy + lw + 1); ctx.lineTo(cx + 2.5, cy + cfg.h / 2 - 2); ctx.strokeStyle = 'rgba(210,200,200,0.6)'; ctx.lineWidth = 2.8; ctx.stroke();
-                const pg = ctx.createRadialGradient(cx - 3.5, cy - 3.5, 1, cx, cy, lw);
-                pg.addColorStop(0, 'rgba(255,255,255,0.8)'); pg.addColorStop(0.28, col.h); pg.addColorStop(0.7, col.h + 'cc'); pg.addColorStop(1, col.s);
-                ctx.beginPath(); ctx.arc(cx, cy, lw, 0, Math.PI * 2); ctx.fillStyle = pg; ctx.fill();
-                ctx.strokeStyle = 'rgba(0,0,0,0.12)'; ctx.lineWidth = 0.5; ctx.stroke();
-                ctx.beginPath();
-                for (let a = 0; a < Math.PI * 2; a += 0.08) { const rr = a / (Math.PI * 2) * lw * 0.78; const xx = cx + Math.cos(a) * rr, yy = cy + Math.sin(a) * rr; if (a < 0.09) ctx.moveTo(xx, yy); else ctx.lineTo(xx, yy) }
-                ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.lineWidth = 1.8; ctx.stroke();
+                const lw = 13; ctx.beginPath(); ctx.moveTo(cx + 1, cy + lw + 1); ctx.lineTo(cx + 2.5, cy + cfg.h / 2 - 2); ctx.strokeStyle = 'rgba(210,200,200,0.6)'; ctx.lineWidth = 2.8; ctx.stroke();
+                const pg = ctx.createRadialGradient(cx - 3.5, cy - 3.5, 1, cx, cy, lw); pg.addColorStop(0, 'rgba(255,255,255,0.8)'); pg.addColorStop(0.28, col.h); pg.addColorStop(0.7, col.h + 'cc'); pg.addColorStop(1, col.s);
+                ctx.beginPath(); ctx.arc(cx, cy, lw, 0, Math.PI * 2); ctx.fillStyle = pg; ctx.fill(); ctx.strokeStyle = 'rgba(0,0,0,0.12)'; ctx.lineWidth = 0.5; ctx.stroke();
+                ctx.beginPath(); for (let a = 0; a < Math.PI * 2; a += 0.08) { const rr = a / (Math.PI * 2) * lw * 0.78; const xx = cx + Math.cos(a) * rr, yy = cy + Math.sin(a) * rr; if (a < 0.09) ctx.moveTo(xx, yy); else ctx.lineTo(xx, yy); } ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.lineWidth = 1.8; ctx.stroke();
                 ctx.beginPath(); ctx.arc(cx - 4.5, cy - 4.5, 3.5, 0, Math.PI * 2); ctx.fillStyle = 'rgba(255,255,255,0.45)'; ctx.fill();
             }
             return cvs;
         }
 
         // ── JAR FILL / OVERLOAD ────────────────────────────────────────────────────────
-        const JAR_MAX_COMFORTABLE = 15;
-        const JAR_MAX = 25;
+        const JAR_MAX_COMFORTABLE = 15, JAR_MAX = 25;
         function updateJarFill() {
             const pct = Math.min(100, Math.round(tasks.length / JAR_MAX * 100));
             document.getElementById('jarFillLevel').style.height = pct + '%';
-            const overload = document.getElementById('jarOverload');
-            const warning = document.getElementById('overloadWarning');
+            const overload = document.getElementById('jarOverload'); const warning = document.getElementById('overloadWarning');
             if (tasks.length >= JAR_MAX_COMFORTABLE) {
-                const overPct = Math.min(100, Math.round((tasks.length - JAR_MAX_COMFORTABLE) / (JAR_MAX - JAR_MAX_COMFORTABLE) * 100));
-                overload.classList.add('visible');
-                warning.classList.add('visible');
-                document.getElementById('overloadPct').textContent = overPct;
-                document.getElementById('overloadFill').style.width = overPct + '%';
-                // Leaking effect
-                if (tasks.length >= JAR_MAX) {
-                    document.getElementById('jarContainer').classList.add('jar-leaking');
-                } else {
-                    document.getElementById('jarContainer').classList.remove('jar-leaking');
-                }
-            } else {
-                overload.classList.remove('visible');
-                warning.classList.remove('visible');
-                document.getElementById('jarContainer').classList.remove('jar-leaking');
-            }
-            // fog at top when full
-            if (tasks.length > 12) { document.getElementById('jarFog').setAttribute('fill', 'rgba(200,180,240,0.06)'); }
-            else { document.getElementById('jarFog').setAttribute('fill', 'rgba(200,180,240,0)'); }
+                const op = Math.min(100, Math.round((tasks.length - JAR_MAX_COMFORTABLE) / (JAR_MAX - JAR_MAX_COMFORTABLE) * 100));
+                overload.classList.add('visible'); warning.classList.add('visible');
+                document.getElementById('overloadPct').textContent = op; document.getElementById('overloadFill').style.width = op + '%';
+                if (tasks.length >= JAR_MAX) document.getElementById('jarContainer').classList.add('jar-leaking');
+                else document.getElementById('jarContainer').classList.remove('jar-leaking');
+            } else { overload.classList.remove('visible'); warning.classList.remove('visible'); document.getElementById('jarContainer').classList.remove('jar-leaking'); }
+            if (tasks.length > 12) document.getElementById('jarFog').setAttribute('fill', 'rgba(200,180,240,0.06)');
+            else document.getElementById('jarFog').setAttribute('fill', 'rgba(200,180,240,0)');
         }
 
         // ── POSITION ───────────────────────────────────────────────────────────────────
         function positionCandy(task) {
-            const jc = document.getElementById('candyCanvas');
-            const jw = jc.offsetWidth, jh = jc.offsetHeight;
-            const cfg = CANDY_CONFIG[task.size];
-            const bw = Math.round((cfg.w + 18) * cfg.scale), bh = Math.round((cfg.h + 18) * cfg.scale);
-            const idx = tasks.indexOf(task);
-            const col2 = idx % 4, row = Math.floor(idx / 4);
-            const stagger = (col2 % 2) * 5;
-            let x = 8 + col2 * (jw / 4.3) + (Math.random() * 16 - 8);
-            let y = jh - bh - 8 - row * 18 + stagger;
-            x = Math.max(2, Math.min(x, jw - bw - 4));
-            y = Math.max(2, Math.min(y, jh - bh - 2));
-            return { x, y, w: bw, h: bh };
+            const jc = document.getElementById('candyCanvas'); const jw = jc.offsetWidth, jh = jc.offsetHeight;
+            const cfg = CANDY_CONFIG[task.size]; const bw = Math.round((cfg.w + 18) * cfg.scale), bh = Math.round((cfg.h + 18) * cfg.scale);
+            const idx = tasks.indexOf(task); const col2 = idx % 4, row = Math.floor(idx / 4); const stagger = (col2 % 2) * 5;
+            let x = 8 + col2 * (jw / 4.3) + (Math.random() * 16 - 8); let y = jh - bh - 8 - row * 18 + stagger;
+            x = Math.max(2, Math.min(x, jw - bw - 4)); y = Math.max(2, Math.min(y, jh - bh - 2)); return { x, y, w: bw, h: bh };
         }
 
         // ── ADD CANDY ──────────────────────────────────────────────────────────────────
         function addCandyToJar(task) {
-            const jc = document.getElementById('candyCanvas');
-            const pos = positionCandy(task);
-            const col = task.candyColor || MOOD_COLORS[task.mood];
-            const wrapper = document.createElement('div');
-            wrapper.className = 'candy-item dropping';
-            wrapper.dataset.id = task.id;
-            const rot = (Math.random() - 0.5) * 28;
-            const dur = 0.55 + Math.random() * 0.4;
+            const jc = document.getElementById('candyCanvas'); const pos = positionCandy(task); const col = task.candyColor || MOOD_COLORS[task.mood];
+            const wrapper = document.createElement('div'); wrapper.className = 'candy-item dropping'; wrapper.dataset.id = task.id;
+            const rot = (Math.random() - 0.5) * 28; const dur = 0.55 + Math.random() * 0.4;
             wrapper.style.cssText = `left:${pos.x}px;top:${pos.y}px;--land-y:0px;--land-r:${rot}deg;--start-r:${rot * 2}deg;--drop-dur:${dur}s;--base-t:rotate(${rot}deg);transform:rotate(${rot}deg);z-index:${tasks.indexOf(task) + 1};filter:drop-shadow(0 3px 8px ${col.glow});`;
-            wrapper.appendChild(drawCandy(task));
-            jc.appendChild(wrapper);
-            wrapper.addEventListener('mouseenter', e => showTooltip(task, e));
-            wrapper.addEventListener('mouseleave', hideTooltip);
-            wrapper.addEventListener('mousemove', e => moveTooltip(e));
-            wrapper.addEventListener('dblclick', () => completeTask(task.id));
+            wrapper.appendChild(drawCandy(task)); jc.appendChild(wrapper);
+            wrapper.addEventListener('mouseenter', e => showTooltip(task, e)); wrapper.addEventListener('mouseleave', hideTooltip); wrapper.addEventListener('mousemove', e => moveTooltip(e)); wrapper.addEventListener('dblclick', () => completeTask(task.id));
             setTimeout(() => { wrapper.classList.remove('dropping'); wrapper.classList.add('bouncing') }, dur * 1000 + 100);
             playDrop(); updateStats(); renderTaskList(); renderFullTaskList(); updateJarFill();
         }
 
         // ── TOOLTIP ────────────────────────────────────────────────────────────────────
-        function showTooltip(task, e) {
-            const tt = document.getElementById('candyTooltip');
-            const cfg = CANDY_CONFIG[task.size];
-            document.getElementById('tt-name').textContent = task.name;
-            document.getElementById('tt-type').textContent = `${SIZE_EMOJIS[task.size]} ${cfg.label} · ${task.mood}`;
-            document.getElementById('tt-time').textContent = task.time;
-            document.getElementById('tt-due').textContent = task.deadline || 'No deadline';
-            document.getElementById('tt-mood').textContent = task.mood;
-            tt.style.left = (e.clientX + 15) + 'px'; tt.style.top = (e.clientY - 10) + 'px';
-            tt.classList.add('visible');
-        }
+        function showTooltip(task, e) { const tt = document.getElementById('candyTooltip'); const cfg = CANDY_CONFIG[task.size]; document.getElementById('tt-name').textContent = task.name; document.getElementById('tt-type').textContent = `${SIZE_EMOJIS[task.size]} ${cfg.label} · ${task.mood}`; document.getElementById('tt-time').textContent = task.time; document.getElementById('tt-due').textContent = task.deadline || 'No deadline'; document.getElementById('tt-mood').textContent = task.mood; tt.style.left = (e.clientX + 15) + 'px'; tt.style.top = (e.clientY - 10) + 'px'; tt.classList.add('visible'); }
         function moveTooltip(e) { const tt = document.getElementById('candyTooltip'); tt.style.left = (e.clientX + 15) + 'px'; tt.style.top = (e.clientY - 10) + 'px'; }
         function hideTooltip() { document.getElementById('candyTooltip').classList.remove('visible') }
 
         // ── COMPLETE ───────────────────────────────────────────────────────────────────
         function completeTask(id) {
-            const task = tasks.find(t => t.id === id); if (!task) return;
-            hideTooltip();
+            const task = tasks.find(t => t.id === id); if (!task) return; hideTooltip();
             const el = document.querySelector(`.candy-item[data-id="${id}"]`);
             if (el) { el.classList.remove('bouncing'); el.classList.add('completing'); spawnSparkles(el); setTimeout(() => el.remove(), 700) }
-            tasks = tasks.filter(t => t.id !== id);
-            completedCount++; streak++; totalCompleted++;
-            localStorage.setItem('cj_total', totalCompleted);
-            awardXP(task);
+            tasks = tasks.filter(t => t.id !== id); completedCount++; streak++; totalCompleted++;
+            localStorage.setItem('cj_total', totalCompleted); awardXP(task);
             if (task.size === 'massive' || task.size === 'large') { rareCount++; setTimeout(showRareDrop, 900) }
             if (streak >= 3) { sugarRushCount++; showSugarRush(streak); playRush(); } else { playComplete(); }
             checkAchievements(); updateStats(); renderTaskList(); renderFullTaskList(); renderProgress(); updateJarFill();
-            delayCount = 0;
-            clearTimeout(window._streakTimer);
-            window._streakTimer = setTimeout(() => { streak = 0; updateStats() }, 100000);
+            clearTimeout(window._streakTimer); window._streakTimer = setTimeout(() => { streak = 0; updateStats() }, 100000);
         }
-
-        // ── CLEAR JAR ──────────────────────────────────────────────────────────────────
-        function clearJar() {
-            if (!tasks.length) return;
-            if (!confirm('Clear all candies from the jar? This cannot be undone.')) return;
-            tasks = [];
-            document.getElementById('candyCanvas').innerHTML = '';
-            updateStats(); renderTaskList(); renderFullTaskList(); updateJarFill();
-            showNotif('🗑', 'Jar cleared!', 'var(--text3)');
-        }
+        function clearJar() { if (!tasks.length) return; if (!confirm('Clear all candies from the jar?')) return; tasks = []; document.getElementById('candyCanvas').innerHTML = ''; updateStats(); renderTaskList(); renderFullTaskList(); updateJarFill(); showNotif('🗑', 'Jar cleared!', 'var(--text3)'); }
 
         // ── SPARKLES ───────────────────────────────────────────────────────────────────
         function spawnSparkles(el) {
-            const rect = el.getBoundingClientRect();
-            const em = ['✦', '⭐', '💫', '✨', '🌟', '💥', '🍬', '🎉'];
-            for (let i = 0; i < 10; i++) {
-                const sp = document.createElement('div'); sp.className = 'sparkle';
-                const dx = (Math.random() - 0.5) * 120, dy = -(Math.random() * 90 + 20);
-                sp.style.cssText = `left:${rect.left + rect.width / 2}px;top:${rect.top + rect.height / 2}px;--dx:${dx}px;--dy:${dy}px;--dur:${0.55 + Math.random() * 0.7}s;animation-delay:${Math.random() * 0.18}s;`;
-                sp.textContent = em[Math.floor(Math.random() * em.length)];
-                document.body.appendChild(sp); setTimeout(() => sp.remove(), 1600);
-            }
+            const rect = el.getBoundingClientRect(); const em = ['✦', '⭐', '💫', '✨', '🌟', '💥', '🍬', '🎉'];
+            for (let i = 0; i < 10; i++) { const sp = document.createElement('div'); sp.className = 'sparkle'; const dx = (Math.random() - 0.5) * 120, dy = -(Math.random() * 90 + 20); sp.style.cssText = `left:${rect.left + rect.width / 2}px;top:${rect.top + rect.height / 2}px;--dx:${dx}px;--dy:${dy}px;--dur:${0.55 + Math.random() * 0.7}s;animation-delay:${Math.random() * 0.18}s;`; sp.textContent = em[Math.floor(Math.random() * em.length)]; document.body.appendChild(sp); setTimeout(() => sp.remove(), 1600); }
         }
-
-        // ── SUGAR RUSH ─────────────────────────────────────────────────────────────────
-        function showSugarRush(n) {
-            const el = document.getElementById('sugarRush');
-            document.getElementById('rushText').textContent = `🍬 SUGAR RUSH ×${n}!`;
-            el.classList.remove('active'); void el.offsetWidth; el.classList.add('active');
-            document.getElementById('streakBanner').classList.add('visible');
-            document.getElementById('streakCount').textContent = n;
-            setTimeout(() => { el.classList.remove('active'); if (streak < 3) document.getElementById('streakBanner').classList.remove('visible'); }, 3200);
-        }
+        function showSugarRush(n) { const el = document.getElementById('sugarRush'); document.getElementById('rushText').textContent = `🍬 SUGAR RUSH ×${n}!`; el.classList.remove('active'); void el.offsetWidth; el.classList.add('active'); document.getElementById('streakBanner').classList.add('visible'); document.getElementById('streakCount').textContent = n; setTimeout(() => { el.classList.remove('active'); if (streak < 3) document.getElementById('streakBanner').classList.remove('visible'); }, 3200); }
         function showRareDrop() { showNotif('✦', 'Rare Candy! Golden wrapper unlocked!', '#ffd700') }
+        function showNotif(icon, text, color) { const n = document.createElement('div'); n.style.cssText = `position:fixed;top:72px;right:20px;z-index:450;background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:10px 16px;color:${color};font-size:12px;box-shadow:0 4px 20px rgba(0,0,0,0.3);animation:notif-sl 0.3s ease-out;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:8px;max-width:240px;`; n.innerHTML = `<span style="font-size:18px">${icon}</span><span>${text}</span>`; document.body.appendChild(n); setTimeout(() => n.remove(), 3200); }
+        const ns = document.createElement('style'); ns.textContent = '@keyframes notif-sl{from{transform:translateX(50px);opacity:0}to{transform:translateX(0);opacity:1}}'; document.head.appendChild(ns);
 
-        // ── NOTIF ──────────────────────────────────────────────────────────────────────
-        function showNotif(icon, text, color) {
-            const n = document.createElement('div');
-            n.style.cssText = `position:fixed;top:72px;right:20px;z-index:450;background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:10px 16px;color:${color};font-size:12px;box-shadow:0 4px 20px rgba(0,0,0,0.3);animation:notif-sl 0.3s ease-out;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:8px;max-width:240px;`;
-            n.innerHTML = `<span style="font-size:18px">${icon}</span><span>${text}</span>`;
-            document.body.appendChild(n); setTimeout(() => n.remove(), 3200);
-        }
-        const s = document.createElement('style'); s.textContent = '@keyframes notif-sl{from{transform:translateX(50px);opacity:0}to{transform:translateX(0);opacity:1}}'; document.head.appendChild(s);
-
-        // ── SHAKE ──────────────────────────────────────────────────────────────────────
-        function shakeJar() {
-            document.getElementById('jarContainer').classList.add('jar-shaking');
-            playShake();
-            document.querySelectorAll('.candy-item').forEach(el => {
-                el.classList.remove('bouncing');
-                el.style.transition = 'transform 0.12s';
-                const r = (Math.random() - 0.5) * 22, tx = (Math.random() - 0.5) * 12, ty = (Math.random() - 0.5) * 7;
-                el.style.transform = `rotate(${r}deg) translate(${tx}px,${ty}px)`;
-                setTimeout(() => { el.style.transform = ''; el.style.transition = 'transform 0.35s ease-out'; setTimeout(() => el.classList.add('bouncing'), 400) }, 380);
-            });
-            setTimeout(() => document.getElementById('jarContainer').classList.remove('jar-shaking'), 900);
-        }
-
-        // ── PULL RANDOM ────────────────────────────────────────────────────────────────
-        function pullRandom() {
-            if (!tasks.length) return;
-            const task = tasks[Math.floor(Math.random() * tasks.length)];
-            const el = document.querySelector(`.candy-item[data-id="${task.id}"]`);
-            if (el) {
-                el.classList.remove('bouncing');
-                el.style.transition = 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1),filter 0.3s';
-                el.style.transform = 'scale(2.2) rotate(12deg)'; el.style.zIndex = 80;
-                el.style.filter = `drop-shadow(0 0 20px ${MOOD_COLORS[task.mood].glow}) drop-shadow(0 0 40px ${MOOD_COLORS[task.mood].glow})`;
-                showTooltip(task, { clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 });
-                setTimeout(() => { el.style.transform = ''; el.style.zIndex = ''; el.style.filter = ''; el.classList.add('bouncing'); hideTooltip(); }, 2600);
-            }
-        }
+        // ── SHAKE / RANDOM ─────────────────────────────────────────────────────────────
+        function shakeJar() { document.getElementById('jarContainer').classList.add('jar-shaking'); playShake(); document.querySelectorAll('.candy-item').forEach(el => { el.classList.remove('bouncing'); el.style.transition = 'transform 0.12s'; const r = (Math.random() - 0.5) * 22, tx = (Math.random() - 0.5) * 12, ty = (Math.random() - 0.5) * 7; el.style.transform = `rotate(${r}deg) translate(${tx}px,${ty}px)`; setTimeout(() => { el.style.transform = ''; el.style.transition = 'transform 0.35s ease-out'; setTimeout(() => el.classList.add('bouncing'), 400) }, 380); }); setTimeout(() => document.getElementById('jarContainer').classList.remove('jar-shaking'), 900); }
+        function pullRandom() { if (!tasks.length) return; const task = tasks[Math.floor(Math.random() * tasks.length)]; const el = document.querySelector(`.candy-item[data-id="${task.id}"]`); if (el) { el.classList.remove('bouncing'); el.style.transition = 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1),filter 0.3s'; el.style.transform = 'scale(2.2) rotate(12deg)'; el.style.zIndex = 80; el.style.filter = `drop-shadow(0 0 20px ${MOOD_COLORS[task.mood].glow}) drop-shadow(0 0 40px ${MOOD_COLORS[task.mood].glow})`; showTooltip(task, { clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 }); setTimeout(() => { el.style.transform = ''; el.style.zIndex = ''; el.style.filter = ''; el.classList.add('bouncing'); hideTooltip(); }, 2600); } }
 
         // ── MODAL ──────────────────────────────────────────────────────────────────────
         function openModal() { document.getElementById('modal').classList.add('open'); document.getElementById('taskName').focus(); updatePreview(); }
         function closeModal() { document.getElementById('modal').classList.remove('open') }
         document.getElementById('modal').addEventListener('click', e => { if (e.target === document.getElementById('modal')) closeModal() });
         document.getElementById('shopModal').addEventListener('click', e => { if (e.target === document.getElementById('shopModal')) closeShop() });
-        function updatePreview() {
-            const size = document.getElementById('taskSize').value;
-            const mood = document.getElementById('taskMood').value;
-            const col = MOOD_COLORS[mood];
-            document.getElementById('previewCandy').textContent = SIZE_EMOJIS[size];
-            document.getElementById('previewCandy').style.color = col.h;
-            document.getElementById('previewText').textContent = `${CANDY_CONFIG[size].label} · ${mood}`;
-            document.getElementById('previewText').style.color = col.h;
-        }
+        function updatePreview() { const size = document.getElementById('taskSize').value; const mood = document.getElementById('taskMood').value; const col = MOOD_COLORS[mood]; document.getElementById('previewCandy').textContent = SIZE_EMOJIS[size]; document.getElementById('previewCandy').style.color = col.h; document.getElementById('previewText').textContent = `${CANDY_CONFIG[size].label} · ${mood}`; document.getElementById('previewText').style.color = col.h; }
         function addTask() {
             const name = document.getElementById('taskName').value.trim(); if (!name) return;
-            const colorIdx = candyColorIndex++;
-            const col = CANDY_COLORS[colorIdx % CANDY_COLORS.length];
-            const task = {
-                id: Date.now().toString(36) + Math.random().toString(36).slice(2),
-                name, size: document.getElementById('taskSize').value,
-                mood: document.getElementById('taskMood').value,
-                time: document.getElementById('taskTime').value,
-                deadline: document.getElementById('taskDeadline').value,
-                notes: document.getElementById('taskNotes').value,
-                rare: document.getElementById('taskSize').value === 'massive' && Math.random() < 0.3,
-                added: Date.now(),
-                candyColor: col,
-                colorIdx: colorIdx
-            };
-            tasks.push(task); closeModal();
-            document.getElementById('taskName').value = '';
-            document.getElementById('taskNotes').value = '';
-            document.getElementById('taskDeadline').value = '';
-            addCandyToJar(task);
+            const colorIdx = candyColorIndex++; const col = CANDY_COLORS[colorIdx % CANDY_COLORS.length];
+            const task = { id: Date.now().toString(36) + Math.random().toString(36).slice(2), name, size: document.getElementById('taskSize').value, mood: document.getElementById('taskMood').value, time: document.getElementById('taskTime').value, deadline: document.getElementById('taskDeadline').value, notes: document.getElementById('taskNotes').value, rare: document.getElementById('taskSize').value === 'massive' && Math.random() < 0.3, added: Date.now(), candyColor: col, colorIdx: colorIdx };
+            tasks.push(task); closeModal(); document.getElementById('taskName').value = ''; document.getElementById('taskNotes').value = ''; document.getElementById('taskDeadline').value = ''; addCandyToJar(task);
         }
         document.getElementById('taskName').addEventListener('keydown', e => { if (e.key === 'Enter') addTask() });
 
         // ── STATS ──────────────────────────────────────────────────────────────────────
-        function updateStats() {
-            document.getElementById('statTotal').textContent = tasks.length;
-            document.getElementById('statDone').textContent = completedCount;
-            document.getElementById('statStreak').textContent = streak;
-            document.getElementById('statRare').textContent = rareCount;
-            document.getElementById('taskCountBadge').textContent = tasks.length;
-            if (streak < 3) document.getElementById('streakBanner').classList.remove('visible');
-        }
+        function updateStats() { document.getElementById('statTotal').textContent = tasks.length; document.getElementById('statDone').textContent = completedCount; document.getElementById('statStreak').textContent = streak; document.getElementById('statRare').textContent = rareCount; document.getElementById('taskCountBadge').textContent = tasks.length; if (streak < 3) document.getElementById('streakBanner').classList.remove('visible'); }
 
-        // ── TASK LIST ──────────────────────────────────────────────────────────────────
-        function renderTaskList() {
-            const list = document.getElementById('taskList');
-            if (!tasks.length) { list.innerHTML = '<div style="text-align:center;padding:14px;color:var(--text3);font-size:11px">No candies yet!<br>Add your first task 🍬</div>'; return }
-            list.innerHTML = tasks.map(t => {
-                const col = t.candyColor || MOOD_COLORS[t.mood];
-                return `<div class="task-mini" onclick="highlightCandy('${t.id}')">
-      <span class="task-candy-icon" style="color:${col.h}">${SIZE_EMOJIS[t.size]}</span>
-      <div class="task-mini-info"><div class="task-mini-name">${t.name}</div><div class="task-mini-meta">${t.mood} · ${t.time}</div></div>
-      <button class="task-complete-btn" onclick="event.stopPropagation();completeTask('${t.id}')" title="Complete">✓</button>
-    </div>`;
-            }).join('');
-        }
-        function renderFullTaskList() {
-            const el = document.getElementById('fullTaskList'); if (!el) return;
-            if (!tasks.length) { el.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:20px;text-align:center">Your jar is empty! Add some tasks 🍬</div>'; return }
-            el.innerHTML = tasks.map(t => {
-                const col = t.candyColor || MOOD_COLORS[t.mood];
-                const me = { fun: '🌸', study: '📘', health: '🌿', creative: '✨', urgent: '🔥', painful: '💀' }[t.mood];
-                const dl = t.deadline ? `<span style="color:var(--accent3)">📅 ${t.deadline}</span>` : '';
-                return `<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:11px 13px;margin-bottom:9px;display:flex;align-items:flex-start;gap:9px;transition:all 0.2s;cursor:pointer" onmouseenter="this.style.borderColor='var(--border2)'" onmouseleave="this.style.borderColor='var(--border)'">
-      <span style="font-size:24px;line-height:1;filter:drop-shadow(0 2px 6px ${col.glow})">${SIZE_EMOJIS[t.size]}</span>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;color:var(--text);font-weight:500;margin-bottom:3px">${t.name}</div>
-        <div style="font-size:10px;color:var(--text3);display:flex;gap:10px;flex-wrap:wrap">${me} ${t.mood} · ⏱ ${t.time} ${dl}</div>
-        ${t.notes ? `<div style="font-size:10px;color:var(--text2);margin-top:5px;font-style:italic">${t.notes}</div>` : ''}
-      </div>
-      <button onclick="completeTask('${t.id}')" style="background:rgba(144,212,160,0.15);border:1px solid #90d4a0;border-radius:8px;color:#90d4a0;padding:5px 9px;font-size:10px;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif">✓ Done</button>
-    </div>`;
-            }).join('');
-        }
+        // ── TASK LISTS ─────────────────────────────────────────────────────────────────
+        function renderTaskList() { const list = document.getElementById('taskList'); if (!tasks.length) { list.innerHTML = '<div style="text-align:center;padding:14px;color:var(--text3);font-size:11px">No candies yet!<br>Add your first task 🍬</div>'; return } list.innerHTML = tasks.map(t => { const col = t.candyColor || MOOD_COLORS[t.mood]; return `<div class="task-mini" onclick="highlightCandy('${t.id}')"><span class="task-candy-icon" style="color:${col.h}">${SIZE_EMOJIS[t.size]}</span><div class="task-mini-info"><div class="task-mini-name">${t.name}</div><div class="task-mini-meta">${t.mood} · ${t.time}</div></div><button class="task-complete-btn" onclick="event.stopPropagation();completeTask('${t.id}')" title="Complete">✓</button></div>`; }).join(''); }
+        function renderFullTaskList() { const el = document.getElementById('fullTaskList'); if (!el) return; if (!tasks.length) { el.innerHTML = '<div style="color:var(--text3);font-size:13px;padding:20px;text-align:center">Your jar is empty! Add some tasks 🍬</div>'; return } el.innerHTML = tasks.map(t => { const col = t.candyColor || MOOD_COLORS[t.mood]; const me = { fun: '🌸', study: '📘', health: '🌿', creative: '✨', urgent: '🔥', painful: '💀' }[t.mood]; const dl = t.deadline ? `<span style="color:var(--accent3)">📅 ${t.deadline}</span>` : ''; return `<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:11px 13px;margin-bottom:9px;display:flex;align-items:flex-start;gap:9px;transition:all 0.2s;cursor:pointer" onmouseenter="this.style.borderColor='var(--border2)'" onmouseleave="this.style.borderColor='var(--border)'"><span style="font-size:24px;line-height:1;filter:drop-shadow(0 2px 6px ${col.glow})">${SIZE_EMOJIS[t.size]}</span><div style="flex:1;min-width:0"><div style="font-size:13px;color:var(--text);font-weight:500;margin-bottom:3px">${t.name}</div><div style="font-size:10px;color:var(--text3);display:flex;gap:10px;flex-wrap:wrap">${me} ${t.mood} · ⏱ ${t.time} ${dl}</div>${t.notes ? `<div style="font-size:10px;color:var(--text2);margin-top:5px;font-style:italic">${t.notes}</div>` : ''}</div><button onclick="completeTask('${t.id}')" style="background:rgba(144,212,160,0.15);border:1px solid #90d4a0;border-radius:8px;color:#90d4a0;padding:5px 9px;font-size:10px;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif">✓ Done</button></div>`; }).join(''); }
 
         // ── PROGRESS ───────────────────────────────────────────────────────────────────
-        function renderProgress() {
-            const el = document.getElementById('progressContent'); if (!el) return;
-            const total = totalCompleted + completedCount;
-            const pct = n => Math.min(100, Math.round(n));
-            const lv = getLevel(xpCurrent);
-            el.innerHTML = `
-  <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px;margin-bottom:10px">
-    <div class="stat-card-grid">
-      <div class="stat-card"><div class="big">${total}</div><div class="sm">Total Eaten 🍬</div></div>
-      <div class="stat-card"><div class="big">${rareCount}</div><div class="sm">Rare Candies ✦</div></div>
-      <div class="stat-card"><div class="big">${lv}</div><div class="sm">Level 🎮</div></div>
-      <div class="stat-card"><div class="big">${coins}</div><div class="sm">Coins 💰</div></div>
-    </div>
-  </div>
-  <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px;margin-bottom:10px">
-    <div class="panel-title">XP Progress — Level ${lv}</div>
-    <div class="prog-bar-wrap"><div class="prog-label"><span>Level ${lv} → ${lv + 1}</span><span>${getXPInLevel(xpCurrent)}/100 XP</span></div><div class="prog-track"><div class="prog-fill purple" style="width:${getXPInLevel(xpCurrent)}%"></div></div></div>
-    <div class="prog-bar-wrap"><div class="prog-label"><span>🍬 Candy Collector</span><span>${total}/10</span></div><div class="prog-track"><div class="prog-fill purple" style="width:${pct(total / 10 * 100)}%"></div></div></div>
-    <div class="prog-bar-wrap"><div class="prog-label"><span>⚡ Sugar Rush Master</span><span>${sugarRushCount}/5</span></div><div class="prog-track"><div class="prog-fill amber" style="width:${pct(sugarRushCount / 5 * 100)}%"></div></div></div>
-    <div class="prog-bar-wrap"><div class="prog-label"><span>✦ Rare Hunter</span><span>${rareCount}/10</span></div><div class="prog-track"><div class="prog-fill green" style="width:${pct(rareCount / 10 * 100)}%"></div></div></div>
-    <div class="prog-bar-wrap"><div class="prog-label"><span>🌟 Legend (100 total)</span><span>${total}/100</span></div><div class="prog-track"><div class="prog-fill purple" style="width:${pct(total / 100 * 100)}%"></div></div></div>
-  </div>
-  <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px">
-    <div class="panel-title">Achievements</div>
-    ${COLLECTION_ITEMS.slice(0, 6).map(a => {
-                const unlocked = collectionUnlocked.includes(a.id);
-                return `<div class="achievement ${unlocked ? '' : 'ach-locked'}">
-        <div class="ach-icon">${a.emoji}</div>
-        <div class="ach-info"><div class="ach-name">${a.name}</div><div class="ach-desc">${a.desc}</div></div>
-        ${unlocked ? '<span style="color:var(--accent);font-size:15px">✓</span>' : '<span style="color:var(--text3);font-size:10px">🔒</span>'}
-      </div>`;
-            }).join('')}
-  </div>`;
-        }
+        function renderProgress() { const el = document.getElementById('progressContent'); if (!el) return; const total = totalCompleted + completedCount; const pct = n => Math.min(100, Math.round(n)); const lv = getLevel(xpCurrent); el.innerHTML = `<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px;margin-bottom:10px"><div class="stat-card-grid"><div class="stat-card"><div class="big">${total}</div><div class="sm">Total Eaten 🍬</div></div><div class="stat-card"><div class="big">${rareCount}</div><div class="sm">Rare Candies ✦</div></div><div class="stat-card"><div class="big">${lv}</div><div class="sm">Level 🎮</div></div><div class="stat-card"><div class="big">${coins}</div><div class="sm">Coins 💰</div></div></div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px;margin-bottom:10px"><div class="panel-title">XP Progress — Level ${lv}</div><div class="prog-bar-wrap"><div class="prog-label"><span>Level ${lv} → ${lv + 1}</span><span>${getXPInLevel(xpCurrent)}/100 XP</span></div><div class="prog-track"><div class="prog-fill purple" style="width:${getXPInLevel(xpCurrent)}%"></div></div></div><div class="prog-bar-wrap"><div class="prog-label"><span>🍬 Candy Collector</span><span>${total}/10</span></div><div class="prog-track"><div class="prog-fill purple" style="width:${pct(total / 10 * 100)}%"></div></div></div><div class="prog-bar-wrap"><div class="prog-label"><span>⚡ Rush Master</span><span>${sugarRushCount}/5</span></div><div class="prog-track"><div class="prog-fill amber" style="width:${pct(sugarRushCount / 5 * 100)}%"></div></div></div><div class="prog-bar-wrap"><div class="prog-label"><span>✦ Rare Hunter</span><span>${rareCount}/10</span></div><div class="prog-track"><div class="prog-fill green" style="width:${pct(rareCount / 10 * 100)}%"></div></div></div><div class="prog-bar-wrap"><div class="prog-label"><span>🌟 Legend</span><span>${total}/100</span></div><div class="prog-track"><div class="prog-fill purple" style="width:${pct(total / 100 * 100)}%"></div></div></div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px"><div class="panel-title">Achievements</div>${COLLECTION_ITEMS.map(a => { const unlocked = collectionUnlocked.includes(a.id); return `<div class="achievement ${unlocked ? '' : 'ach-locked'}"><div class="ach-icon">${a.emoji}</div><div class="ach-info"><div class="ach-name">${a.name}</div><div class="ach-desc">${a.desc}</div></div>${unlocked ? '<span style="color:var(--accent);font-size:15px">✓</span>' : '<span style="color:var(--text3);font-size:10px">🔒</span>'}</div>`; }).join('')}</div>`; }
 
         // ── COLLECTION ──────────────────────────────────────────────────────────────────
-        function checkAchievements() {
-            const total = totalCompleted + completedCount;
-            COLLECTION_ITEMS.forEach(a => {
-                if (collectionUnlocked.includes(a.id)) return;
-                let unlock = false;
-                if (a.type === 'total' && total >= a.req) unlock = true;
-                if (a.type === 'rush' && sugarRushCount >= a.req) unlock = true;
-                if (unlock) { collectionUnlocked.push(a.id); localStorage.setItem('cj_collection', JSON.stringify(collectionUnlocked)); showNotif(a.emoji, 'Achievement: ' + a.name, 'var(--accent)'); }
-            });
-        }
-        function renderCollection() {
-            const el = document.getElementById('collectionContent'); if (!el) return;
-            el.innerHTML = `
-  <div style="font-size:12px;color:var(--text2);margin-bottom:12px">${collectionUnlocked.length}/${COLLECTION_ITEMS.length} candies unlocked</div>
-  <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px">
-    <div class="candy-grid">
-    ${COLLECTION_ITEMS.map(a => { const u = collectionUnlocked.includes(a.id); return `<div class="candy-collect ${u ? '' : 'locked'}" title="${a.desc}"><span class="ce">${a.emoji}</span><div class="cn">${a.name}</div>${u ? '<div class="cc">✓</div>' : '<div class="cc">🔒</div>'}</div>`; }).join('')}
-    </div>
-  </div>`;
-        }
+        function checkAchievements() { const total = totalCompleted + completedCount; COLLECTION_ITEMS.forEach(a => { if (collectionUnlocked.includes(a.id)) return; let unlock = false; if (a.type === 'total' && total >= a.req) unlock = true; if (a.type === 'rush' && sugarRushCount >= a.req) unlock = true; if (unlock) { collectionUnlocked.push(a.id); localStorage.setItem('cj_collection', JSON.stringify(collectionUnlocked)); showNotif(a.emoji, 'Achievement: ' + a.name, 'var(--accent)'); } }); }
+        function renderCollection() { const el = document.getElementById('collectionContent'); if (!el) return; el.innerHTML = `<div style="font-size:12px;color:var(--text2);margin-bottom:12px">${collectionUnlocked.length}/${COLLECTION_ITEMS.length} candies unlocked</div><div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px"><div class="candy-grid">${COLLECTION_ITEMS.map(a => { const u = collectionUnlocked.includes(a.id); return `<div class="candy-collect ${u ? '' : 'locked'}" title="${a.desc}"><span class="ce">${a.emoji}</span><div class="cn">${a.name}</div>${u ? '<div class="cc">✓</div>' : '<div class="cc">🔒</div>'}</div>`; }).join('')}</div></div>`; }
 
         // ── FRIENDS ────────────────────────────────────────────────────────────────────
-        const MOCK_FRIENDS = [
-            { name: 'Zara M.', avatar: '👩‍💻', color: '#f5a0c8', tasks: 7, done: 12, online: true, jar: '🫙' },
-            { name: 'Kai T.', avatar: '🧑‍🎨', color: '#90b4f5', tasks: 3, done: 28, online: true, jar: '🍯' },
-            { name: 'Priya S.', avatar: '👩‍🔬', color: '#90d4a0', tasks: 11, done: 5, online: false, jar: '🫙' },
-            { name: 'Luca R.', avatar: '👨‍💼', color: '#c8a0f0', tasks: 2, done: 41, online: false, jar: '🍯' },
-        ];
-        function renderFriends() {
-            const el = document.getElementById('friendsContent'); if (!el) return;
-            el.innerHTML = `
-  <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px;margin-bottom:10px">
-    <div class="panel-title">Friend Jars</div>
-    ${MOCK_FRIENDS.map(f => `
-    <div class="friend-jar">
-      <div class="friend-avatar" style="background:${f.color}22;border:1px solid ${f.color}44">${f.avatar}</div>
-      <div class="friend-info"><div class="friend-name">${f.name}</div><div class="friend-stat">🍬 ${f.tasks} in jar · ✅ ${f.done} eaten</div></div>
-      <span style="font-size:18px">${f.jar}</span>
-      ${f.online ? '<div class="online-dot"></div>' : ''}
-    </div>`).join('')}
-  </div>
-  <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px;margin-bottom:10px">
-    <div class="panel-title">Weekly Leaderboard 🏆</div>
-    ${[...MOCK_FRIENDS].sort((a, b) => b.done - a.done).map((f, i) => `
-    <div style="display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--border)">
-      <span style="font-size:13px;width:18px;text-align:center">${['🥇', '🥈', '🥉', '4️⃣'][i]}</span>
-      <span style="font-size:15px">${f.avatar}</span>
-      <span style="flex:1;font-size:12px;color:var(--text)">${f.name}</span>
-      <span style="font-size:11px;color:var(--accent)">${f.done} 🍬</span>
-    </div>`).join('')}
-  </div>
-  <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px">
-    <div class="panel-title">Invite Friends</div>
-    <div style="font-size:11px;color:var(--text2);margin-bottom:8px">Share your jar code!</div>
-    <div style="display:flex;gap:7px">
-      <input readonly value="CANDY-${Math.random().toString(36).slice(2, 8).toUpperCase()}" style="flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 10px;color:var(--accent);font-size:11px;font-family:monospace;outline:none">
-      <button onclick="navigator.clipboard.writeText(this.previousElementSibling.value)" style="background:rgba(192,160,240,0.2);border:1px solid var(--accent);border-radius:8px;color:var(--accent);padding:6px 11px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif">Copy</button>
-    </div>
-  </div>`;
-        }
+        const MOCK_FRIENDS = [{ name: 'Zara M.', avatar: '👩‍💻', color: '#f5a0c8', tasks: 7, done: 12, online: true, jar: '🫙' }, { name: 'Kai T.', avatar: '🧑‍🎨', color: '#90b4f5', tasks: 3, done: 28, online: true, jar: '🍯' }, { name: 'Priya S.', avatar: '👩‍🔬', color: '#90d4a0', tasks: 11, done: 5, online: false, jar: '🫙' }, { name: 'Luca R.', avatar: '👨‍💼', color: '#c8a0f0', tasks: 2, done: 41, online: false, jar: '🍯' }];
+        function renderFriends() { const el = document.getElementById('friendsContent'); if (!el) return; el.innerHTML = `<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px;margin-bottom:10px"><div class="panel-title">Friend Jars</div>${MOCK_FRIENDS.map(f => `<div class="friend-jar"><div class="friend-avatar" style="background:${f.color}22;border:1px solid ${f.color}44">${f.avatar}</div><div class="friend-info"><div class="friend-name">${f.name}</div><div class="friend-stat">🍬 ${f.tasks} in jar · ✅ ${f.done} eaten</div></div><span style="font-size:18px">${f.jar}</span>${f.online ? '<div class="online-dot"></div>' : ''}</div>`).join('')}</div><div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px;margin-bottom:10px"><div class="panel-title">Weekly Leaderboard 🏆</div>${[...MOCK_FRIENDS].sort((a, b) => b.done - a.done).map((f, i) => `<div style="display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--border)"><span style="font-size:13px;width:18px;text-align:center">${['🥇', '🥈', '🥉', '4️⃣'][i]}</span><span style="font-size:15px">${f.avatar}</span><span style="flex:1;font-size:12px;color:var(--text)">${f.name}</span><span style="font-size:11px;color:var(--accent)">${f.done} 🍬</span></div>`).join('')}</div><div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px"><div class="panel-title">Invite Friends</div><div style="display:flex;gap:7px"><input readonly value="CANDY-${Math.random().toString(36).slice(2, 8).toUpperCase()}" style="flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 10px;color:var(--accent);font-size:11px;font-family:monospace;outline:none"><button onclick="navigator.clipboard.writeText(this.previousElementSibling.value)" style="background:rgba(192,160,240,0.2);border:1px solid var(--accent);border-radius:8px;color:var(--accent);padding:6px 11px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif">Copy</button></div></div>`; }
 
         // ── NOTES ──────────────────────────────────────────────────────────────────────
-        function renderNotes() {
-            const el = document.getElementById('notesContent'); if (!el) return;
-            const klogHtml = knowledgeLog.length ? `<div style="margin-top:12px"><div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Knowledge Log ✦</div>${knowledgeLog.slice(-10).reverse().map(k => `<div class="klog-item">${k.text}<div class="klog-time">${new Date(k.time).toLocaleString()}</div></div>`).join('')}</div>` : '';
-            el.innerHTML = `
-  <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px;margin-bottom:10px">
-    <div class="panel-title">Quick Notes 📝</div>
-    <textarea class="notes-area" id="notesTextarea" placeholder="Jot down anything... ideas, reminders, thoughts ✨">${notes}</textarea>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px">
-      <span style="font-size:10px;color:var(--text3)">${notes.length} chars</span>
-      <button onclick="saveNotes()" style="background:rgba(192,160,240,0.2);border:1px solid var(--accent);border-radius:8px;color:var(--accent);padding:5px 12px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif">💾 Save</button>
-    </div>
-    ${klogHtml}
-  </div>`;
-            document.getElementById('notesTextarea').addEventListener('input', function () { notes = this.value; });
-        }
+        function renderNotes() { const el = document.getElementById('notesContent'); if (!el) return; const klogHtml = knowledgeLog.length ? `<div style="margin-top:12px"><div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Knowledge Log ✦</div>${knowledgeLog.slice(-10).reverse().map(k => `<div class="klog-item">${k.text}<div class="klog-time">${new Date(k.time).toLocaleString()}</div></div>`).join('')}</div>` : ''; el.innerHTML = `<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px;margin-bottom:10px"><div class="panel-title">Quick Notes 📝</div><textarea class="notes-area" id="notesTextarea" placeholder="Jot down anything... ideas, reminders, thoughts ✨">${notes}</textarea><div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px"><span style="font-size:10px;color:var(--text3)">${notes.length} chars</span><button onclick="saveNotes()" style="background:rgba(192,160,240,0.2);border:1px solid var(--accent);border-radius:8px;color:var(--accent);padding:5px 12px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif">💾 Save</button></div>${klogHtml}</div>`; document.getElementById('notesTextarea').addEventListener('input', function () { notes = this.value; }); }
         function saveNotes() { notes = document.getElementById('notesTextarea').value; localStorage.setItem('cj_notes', notes); showNotif('💾', 'Notes saved!', 'var(--accent)'); }
-
-        // ── HIGHLIGHT ──────────────────────────────────────────────────────────────────
-        function highlightCandy(id) {
-            const el = document.querySelector(`.candy-item[data-id="${id}"]`); if (!el) return;
-            el.classList.remove('bouncing');
-            el.style.transition = 'transform 0.35s cubic-bezier(0.34,1.56,0.64,1),filter 0.3s';
-            el.style.transform = 'scale(1.6)'; el.style.zIndex = 80;
-            const task = tasks.find(t => t.id === id);
-            const col = task?.candyColor || MOOD_COLORS[task?.mood || 'fun'];
-            el.style.filter = `drop-shadow(0 0 16px ${col.glow})`;
-            setTimeout(() => { el.style.transform = ''; el.style.zIndex = ''; el.style.filter = ''; el.classList.add('bouncing'); }, 1300);
-        }
+        function highlightCandy(id) { const el = document.querySelector(`.candy-item[data-id="${id}"]`); if (!el) return; el.classList.remove('bouncing'); el.style.transition = 'transform 0.35s cubic-bezier(0.34,1.56,0.64,1),filter 0.3s'; el.style.transform = 'scale(1.6)'; el.style.zIndex = 80; const task = tasks.find(t => t.id === id); const col = task?.candyColor || MOOD_COLORS[task?.mood || 'fun']; el.style.filter = `drop-shadow(0 0 16px ${col.glow})`; setTimeout(() => { el.style.transform = ''; el.style.zIndex = ''; el.style.filter = ''; el.classList.add('bouncing'); }, 1300); }
 
         // ── FORTUNE ────────────────────────────────────────────────────────────────────
-        function drawFortune() {
-            const btn = document.getElementById('fortuneBtn'); btn.disabled = true; btn.textContent = '✦ Revealed!';
-            const f = FORTUNES[Math.floor(Math.random() * FORTUNES.length)];
-            document.getElementById('fortuneIcon').textContent = f.icon;
-            document.getElementById('fortuneQuote').textContent = f.quote;
-            document.getElementById('fortuneAuthor').textContent = f.author;
-            const fd = document.getElementById('fortuneDisplay');
-            fd.style.display = 'block'; fd.style.opacity = 0; fd.style.transition = 'opacity 0.5s';
-            setTimeout(() => fd.style.opacity = 1, 50);
-        }
-
-        // ── MOOD ───────────────────────────────────────────────────────────────────────
-        function setMood(el, m) {
-            document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('active'));
-            el.classList.add('active'); currentMood = m;
-            document.getElementById('moodSuggestion').textContent = MOOD_SUGGESTIONS[m] || 'Keep going! 🍬';
-        }
+        function drawFortune() { const btn = document.getElementById('fortuneBtn'); btn.disabled = true; btn.textContent = '✦ Revealed!'; const f = FORTUNES[Math.floor(Math.random() * FORTUNES.length)]; document.getElementById('fortuneIcon').textContent = f.icon; document.getElementById('fortuneQuote').textContent = f.quote; document.getElementById('fortuneAuthor').textContent = f.author; const fd = document.getElementById('fortuneDisplay'); fd.style.display = 'block'; fd.style.opacity = 0; fd.style.transition = 'opacity 0.5s'; setTimeout(() => fd.style.opacity = 1, 50); }
+        function setMood(el, m) { document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('active')); el.classList.add('active'); currentMood = m; document.getElementById('moodSuggestion').textContent = MOOD_SUGGESTIONS[m] || 'Keep going! 🍬'; }
 
         // ── THEME ──────────────────────────────────────────────────────────────────────
         function toggleThemeMenu() { document.getElementById('themeDropdown').classList.toggle('open') }
         document.addEventListener('click', e => { if (!e.target.closest('.theme-picker')) document.getElementById('themeDropdown').classList.remove('open') });
-        function setTheme(t, el) {
-            currentTheme = t;
-            document.body.setAttribute('data-theme', t === 'default' ? '' : t);
-            document.querySelectorAll('.theme-opt').forEach(o => o.classList.remove('active'));
-            el.classList.add('active');
-            document.getElementById('themeDropdown').classList.remove('open');
-            const nm = el.textContent.trim().replace(/^[^\s]+\s/, '');
-            document.getElementById('themeBtn').textContent = '🎨 ' + nm;
-        }
-
-        // ── RAIN ───────────────────────────────────────────────────────────────────────
-        function toggleRain() {
-            rainEnabled = !rainEnabled;
-            document.getElementById('rainBtn').textContent = rainEnabled ? '🌧 Rain' : '☀️ Clear';
-            document.getElementById('rainBtn').classList.toggle('active', rainEnabled);
-        }
-
-        // ── ZEN MODE ───────────────────────────────────────────────────────────────────
-        function toggleZen() {
-            zenMode = !zenMode;
-            document.body.classList.toggle('zen-mode', zenMode);
-            document.getElementById('zenBtn').classList.toggle('active', zenMode);
-            document.getElementById('zenBtn').textContent = zenMode ? '🧘 Exit Zen' : '🧘 Zen';
-        }
-        document.addEventListener('keydown', e => {
-            if (e.key === 'z' && !e.ctrlKey && !e.metaKey && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') toggleZen();
-        });
+        function setTheme(t, el) { currentTheme = t; document.body.setAttribute('data-theme', t === 'default' ? '' : t); document.querySelectorAll('.theme-opt').forEach(o => o.classList.remove('active')); if (el) el.classList.add('active'); document.getElementById('themeDropdown').classList.remove('open'); }
+        function toggleRain() { rainEnabled = !rainEnabled; document.getElementById('rainBtn').textContent = rainEnabled ? '🌧' : '☀️'; document.getElementById('rainBtn').classList.toggle('active', rainEnabled); }
+        function toggleZen() { zenMode = !zenMode; document.body.classList.toggle('zen-mode', zenMode); document.getElementById('zenBtn').classList.toggle('active', zenMode); document.getElementById('zenBtn').textContent = zenMode ? '🧘 Exit' : '🧘'; }
+        document.addEventListener('keydown', e => { if (e.key === 'z' && !e.ctrlKey && !e.metaKey && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') toggleZen(); });
 
         // ── NAVIGATION ─────────────────────────────────────────────────────────────────
-        function setSideNav(el, view) {
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            el.classList.add('active');
-            document.querySelectorAll('.view').forEach(v => v.style.display = 'none');
-            const vEl = document.getElementById('view-' + view);
-            if (vEl) vEl.style.display = 'flex';
-            currentView = view;
-            if (view === 'tasks') renderFullTaskList();
-            if (view === 'progress') renderProgress();
-            if (view === 'collection') renderCollection();
-            if (view === 'friends') renderFriends();
-            if (view === 'notes') renderNotes();
-        }
-        function setSideNavById(view) {
-            const el = document.querySelector(`.nav-item[data-tab="${view}"]`);
-            if (el) setSideNav(el, view);
-        }
+        function setSideNav(el, view) { document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active')); el.classList.add('active'); document.querySelectorAll('.view').forEach(v => v.style.display = 'none'); const vEl = document.getElementById('view-' + view); if (vEl) vEl.style.display = 'flex'; currentView = view; if (view === 'tasks') renderFullTaskList(); if (view === 'progress') renderProgress(); if (view === 'collection') renderCollection(); if (view === 'friends') renderFriends(); if (view === 'notes') renderNotes(); }
+        function setSideNavById(view) { const el = document.querySelector(`.nav-item[data-tab="${view}"]`); if (el) setSideNav(el, view); }
+        function setTab(el, id) { document.querySelectorAll('.tab').forEach(t => t.classList.remove('active')); document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active')); el.classList.add('active'); document.getElementById(id).classList.add('active'); }
 
-        // ── RIGHT PANEL TABS ───────────────────────────────────────────────────────────
-        function setTab(el, id) {
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-            el.classList.add('active'); document.getElementById(id).classList.add('active');
-        }
-
-        // ══════════════════════════════════════════════════════════════════════════════
-        // ── TIMER ENGINE ──────────────────────────────────────────────────────────────
-        // ══════════════════════════════════════════════════════════════════════════════
-        let timerMode = 'pomodoro';
-        let timerInterval = null;
-        let timerRunning = false;
-        let pomoPhase = 'focus'; // focus | break
-        let pomoFocusMin = 25, pomoBreakMin = 5;
-        let pomoRemaining = 25 * 60;
-        let pomoSessions = 0;
-        let pomoSessionsDone = 0;
-
-        function setTimerMode(m) {
-            timerMode = m;
-            document.querySelectorAll('.tmode-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById('tmode-' + m).classList.add('active');
-            document.getElementById('timer-pomo-view').style.display = m === 'pomodoro' ? 'block' : 'none';
-            document.getElementById('timer-custom-view').style.display = m === 'custom' ? 'block' : 'none';
-            document.getElementById('timer-stopwatch-view').style.display = m === 'stopwatch' ? 'block' : 'none';
-            if (m === 'pomodoro') initPomodoro();
-        }
+        // ── TIMER ENGINE ───────────────────────────────────────────────────────────────
+        let timerMode = 'pomodoro', timerInterval = null, timerRunning = false;
+        let pomoPhase = 'focus', pomoFocusMin = 25, pomoBreakMin = 5, pomoRemaining = 25 * 60, pomoSessionsDone = 0;
+        function setTimerMode(m) { timerMode = m; document.querySelectorAll('.tmode-btn').forEach(b => b.classList.remove('active')); document.getElementById('tmode-' + m).classList.add('active'); document.getElementById('timer-pomo-view').style.display = m === 'pomodoro' ? 'block' : 'none'; document.getElementById('timer-custom-view').style.display = m === 'custom' ? 'block' : 'none'; document.getElementById('timer-stopwatch-view').style.display = m === 'stopwatch' ? 'block' : 'none'; if (m === 'pomodoro') initPomodoro(); }
         function setPomoTime(f, b) { pomoFocusMin = f; pomoBreakMin = b; resetTimer(); }
-
-        // ── POMODORO ──────────────────────────────────────────────────────────────────
-        function initPomodoro() {
-            pomoRemaining = pomoFocusMin * 60;
-            pomoPhase = 'focus';
-            updatePomoRing();
-            updatePomoDisplay();
-            renderPomoDots();
-        }
-        function updatePomoDisplay() {
-            const m = Math.floor(pomoRemaining / 60), s = pomoRemaining % 60;
-            const str = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
-            document.getElementById('ringTime').textContent = str;
-            document.getElementById('ringLabel').textContent = pomoPhase === 'focus' ? 'Focus 🎯' : 'Break 🌸';
-        }
-        function updatePomoRing() {
-            const total = (pomoPhase === 'focus' ? pomoFocusMin : pomoBreakMin) * 60;
-            const pct = pomoRemaining / total;
-            const circ = 2 * Math.PI * 68;
-            const offset = circ * (1 - pct);
-            document.getElementById('ringProg').style.strokeDashoffset = offset;
-            // color based on remaining
-            const ring = document.getElementById('ringProg');
-            if (pomoRemaining <= 120) ring.style.stroke = '#f09060';
-            else ring.style.stroke = 'var(--accent)';
-        }
-        function renderPomoDots() {
-            const c = document.getElementById('pomoDots');
-            const total = 4; c.innerHTML = '';
-            for (let i = 0; i < total; i++) {
-                const d = document.createElement('div'); d.className = 'pomo-dot';
-                if (i < pomoSessionsDone) d.classList.add('done');
-                else if (i === pomoSessionsDone) d.classList.add('current');
-                c.appendChild(d);
-            }
-        }
-        function toggleTimer() {
-            if (timerRunning) {
-                clearInterval(timerInterval); timerRunning = false;
-                document.getElementById('timerPlayBtn').textContent = '▶ Resume';
-            } else {
-                timerRunning = true;
-                document.getElementById('timerPlayBtn').textContent = '⏸ Pause';
-                timerInterval = setInterval(() => {
-                    pomoRemaining--;
-                    updatePomoDisplay(); updatePomoRing();
-                    if (pomoRemaining <= 0) {
-                        clearInterval(timerInterval); timerRunning = false;
-                        document.getElementById('timerPlayBtn').textContent = '▶ Start';
-                        onPomoPhaseEnd();
-                    }
-                }, 1000);
-            }
-        }
-        function onPomoPhaseEnd() {
-            playBell();
-            if (pomoPhase === 'focus') {
-                pomoSessionsDone++;
-                if (pomoSessionsDone >= 4) pomoSessionsDone = 0;
-                renderPomoDots();
-                // Award XP for completing a focus session
-                xpCurrent += 20; coins += 5;
-                localStorage.setItem('cj_xp', xpCurrent);
-                localStorage.setItem('cj_coins', coins);
-                updateXPBar(); updateCoinDisplay();
-                showNotif('🎯', 'Focus session done! +20 XP', 'var(--accent)');
-                // Synthesis prompt
-                setTimeout(() => openSynthesis(), 800);
-                // Log session
-                addSessionLog('Focus ' + pomoFocusMin + 'min');
-                // Switch to break
-                pomoPhase = 'break';
-                pomoRemaining = pomoBreakMin * 60;
-                playBreakBell();
-            } else {
-                pomoPhase = 'focus';
-                pomoRemaining = pomoFocusMin * 60;
-                showNotif('🍅', 'Break over! Ready to focus?', '#f09060');
-            }
-            updatePomoDisplay(); updatePomoRing();
-        }
-        function resetTimer() {
-            clearInterval(timerInterval); timerRunning = false;
-            pomoPhase = 'focus'; pomoRemaining = pomoFocusMin * 60; pomoSessionsDone = 0;
-            document.getElementById('timerPlayBtn').textContent = '▶ Start';
-            updatePomoDisplay(); updatePomoRing(); renderPomoDots();
-        }
-        function skipPhase() {
-            clearInterval(timerInterval); timerRunning = false;
-            document.getElementById('timerPlayBtn').textContent = '▶ Start';
-            onPomoPhaseEnd();
-        }
-
-        // ── CUSTOM TIMER ──────────────────────────────────────────────────────────────
-        let customTimerRunning = false;
-        let customTimerInterval = null;
-        let customRemaining = 0;
-        let customTotal = 0;
-
-        function toggleCustomTimer() {
-            if (customTimerRunning) {
-                clearInterval(customTimerInterval); customTimerRunning = false;
-                document.getElementById('customPlayBtn').textContent = '▶ Resume';
-            } else {
-                // Get values from inputs
-                const h = parseInt(document.getElementById('customHr').value) || 0;
-                const m = parseInt(document.getElementById('customMin').value) || 0;
-                const s = parseInt(document.getElementById('customSec').value) || 0;
-                if (!customRemaining || customRemaining === 0) {
-                    customRemaining = h * 3600 + m * 60 + s;
-                    customTotal = customRemaining;
-                }
-                if (customRemaining <= 0) {
-                    customRemaining = h * 3600 + m * 60 + s;
-                    customTotal = customRemaining;
-                }
-                if (customRemaining <= 0) return;
-                customTimerRunning = true;
-                document.getElementById('customPlayBtn').textContent = '⏸ Pause';
-                document.getElementById('customTimerLabel').textContent = 'Timer running...';
-                customTimerInterval = setInterval(() => {
-                    customRemaining--;
-                    updateCustomDisplay();
-                    if (customRemaining <= 0) {
-                        clearInterval(customTimerInterval); customTimerRunning = false;
-                        document.getElementById('customPlayBtn').textContent = '▶ Start';
-                        document.getElementById('customTimerLabel').textContent = '⏰ Time\'s up!';
-                        playBell();
-                        showNotif('⏰', 'Timer complete!', 'var(--accent)');
-                        addSessionLog('Custom ' + (customTotal / 60).toFixed(0) + 'min');
-                    }
-                }, 1000);
-            }
-        }
-        function updateCustomDisplay() {
-            const h = Math.floor(customRemaining / 3600);
-            const m = Math.floor((customRemaining % 3600) / 60);
-            const s = customRemaining % 60;
-            const str = (h > 0 ? String(h).padStart(2, '0') + ':' : '') + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
-            document.getElementById('customTimerDisplay').textContent = str;
-            // Warning color last 2 minutes
-            const disp = document.getElementById('customTimerDisplay');
-            if (customRemaining <= 120 && customRemaining > 0) disp.style.color = '#f09060';
-            else disp.style.color = 'var(--text)';
-        }
-        function resetCustomTimer() {
-            clearInterval(customTimerInterval); customTimerRunning = false;
-            customRemaining = 0; customTotal = 0;
-            document.getElementById('customPlayBtn').textContent = '▶ Start';
-            document.getElementById('customTimerDisplay').textContent = '00:00';
-            document.getElementById('customTimerLabel').textContent = 'Set your time above';
-        }
-        // Live update display as user types
-        ['customHr', 'customMin', 'customSec'].forEach(id => {
-            document.getElementById(id).addEventListener('input', () => {
-                if (!customTimerRunning) {
-                    const h = parseInt(document.getElementById('customHr').value) || 0;
-                    const m = parseInt(document.getElementById('customMin').value) || 0;
-                    const s = parseInt(document.getElementById('customSec').value) || 0;
-                    customRemaining = h * 3600 + m * 60 + s;
-                    customTotal = customRemaining;
-                    updateCustomDisplay();
-                }
-            });
-        });
-
-        // ── STOPWATCH ─────────────────────────────────────────────────────────────────
-        let swRunning = false;
-        let swInterval = null;
-        let swMs = 0;
-        let swLaps = [];
-
-        function toggleStopwatch() {
-            if (swRunning) {
-                clearInterval(swInterval); swRunning = false;
-                document.getElementById('swPlayBtn').textContent = '▶ Resume';
-            } else {
-                swRunning = true;
-                document.getElementById('swPlayBtn').textContent = '⏸ Pause';
-                swInterval = setInterval(() => {
-                    swMs += 100;
-                    updateSwDisplay();
-                }, 100);
-            }
-        }
-        function updateSwDisplay() {
-            const h = Math.floor(swMs / 3600000);
-            const m = Math.floor((swMs % 3600000) / 60000);
-            const s = Math.floor((swMs % 60000) / 1000);
-            const ds = Math.floor((swMs % 1000) / 100);
-            const str = (h > 0 ? String(h).padStart(2, '0') + ':' : '') + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0') + '.' + ds;
-            document.getElementById('stopwatchDisplay').textContent = str;
-        }
-        function resetStopwatch() {
-            clearInterval(swInterval); swRunning = false; swMs = 0; swLaps = [];
-            document.getElementById('swPlayBtn').textContent = '▶ Start';
-            document.getElementById('stopwatchDisplay').textContent = '00:00.0';
-            document.getElementById('lapList').innerHTML = '';
-        }
-        function lapStopwatch() {
-            if (!swRunning && swMs === 0) return;
-            swLaps.push(swMs);
-            const ll = document.getElementById('lapList');
-            const h = Math.floor(swMs / 3600000);
-            const m = Math.floor((swMs % 3600000) / 60000);
-            const s = Math.floor((swMs % 60000) / 1000);
-            const ds = Math.floor((swMs % 1000) / 100);
-            const str = (h > 0 ? String(h).padStart(2, '0') + ':' : '') + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0') + '.' + ds;
-            const item = document.createElement('div'); item.className = 'lap-item';
-            item.innerHTML = `<span>Lap ${swLaps.length}</span><span>${str}</span>`;
-            ll.insertBefore(item, ll.firstChild);
-        }
-
-        // ── SESSION LOG ────────────────────────────────────────────────────────────────
+        function initPomodoro() { pomoRemaining = pomoFocusMin * 60; pomoPhase = 'focus'; updatePomoRing(); updatePomoDisplay(); renderPomoDots(); }
+        function updatePomoDisplay() { const m = Math.floor(pomoRemaining / 60), s = pomoRemaining % 60; document.getElementById('ringTime').textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0'); document.getElementById('ringLabel').textContent = pomoPhase === 'focus' ? 'Focus 🎯' : 'Break 🌸'; }
+        function updatePomoRing() { const total = (pomoPhase === 'focus' ? pomoFocusMin : pomoBreakMin) * 60; const pct = pomoRemaining / total; const circ = 2 * Math.PI * 68; document.getElementById('ringProg').style.strokeDashoffset = circ * (1 - pct); document.getElementById('ringProg').style.stroke = pomoRemaining <= 120 ? '#f09060' : 'var(--accent)'; }
+        function renderPomoDots() { const c = document.getElementById('pomoDots'); c.innerHTML = ''; for (let i = 0; i < 4; i++) { const d = document.createElement('div'); d.className = 'pomo-dot'; if (i < pomoSessionsDone) d.classList.add('done'); else if (i === pomoSessionsDone) d.classList.add('current'); c.appendChild(d); } }
+        function toggleTimer() { if (timerRunning) { clearInterval(timerInterval); timerRunning = false; document.getElementById('timerPlayBtn').textContent = '▶ Resume'; } else { timerRunning = true; document.getElementById('timerPlayBtn').textContent = '⏸ Pause'; timerInterval = setInterval(() => { pomoRemaining--; updatePomoDisplay(); updatePomoRing(); if (pomoRemaining <= 0) { clearInterval(timerInterval); timerRunning = false; document.getElementById('timerPlayBtn').textContent = '▶ Start'; onPomoPhaseEnd(); } }, 1000); } }
+        function onPomoPhaseEnd() { playBell(); if (pomoPhase === 'focus') { pomoSessionsDone = (pomoSessionsDone + 1) % 4; renderPomoDots(); xpCurrent += 20; coins += 5; localStorage.setItem('cj_xp', xpCurrent); localStorage.setItem('cj_coins', coins); updateXPBar(); updateCoinDisplay(); showNotif('🎯', 'Focus done! +20 XP +5💰', 'var(--accent)'); setTimeout(() => openSynthesis(), 800); addSessionLog('Focus ' + pomoFocusMin + 'min'); pomoPhase = 'break'; pomoRemaining = pomoBreakMin * 60; playBreakBell(); } else { pomoPhase = 'focus'; pomoRemaining = pomoFocusMin * 60; showNotif('🍅', 'Break over! Ready to focus?', '#f09060'); } updatePomoDisplay(); updatePomoRing(); }
+        function resetTimer() { clearInterval(timerInterval); timerRunning = false; pomoPhase = 'focus'; pomoRemaining = pomoFocusMin * 60; pomoSessionsDone = 0; document.getElementById('timerPlayBtn').textContent = '▶ Start'; updatePomoDisplay(); updatePomoRing(); renderPomoDots(); }
+        function skipPhase() { clearInterval(timerInterval); timerRunning = false; document.getElementById('timerPlayBtn').textContent = '▶ Start'; onPomoPhaseEnd(); }
+        // Custom timer
+        let customTimerRunning = false, customTimerInterval = null, customRemaining = 0, customTotal = 0;
+        function toggleCustomTimer() { if (customTimerRunning) { clearInterval(customTimerInterval); customTimerRunning = false; document.getElementById('customPlayBtn').textContent = '▶ Resume'; } else { const h = parseInt(document.getElementById('customHr').value) || 0; const m = parseInt(document.getElementById('customMin').value) || 0; const s = parseInt(document.getElementById('customSec').value) || 0; if (!customRemaining || customRemaining <= 0) { customRemaining = h * 3600 + m * 60 + s; customTotal = customRemaining; } if (customRemaining <= 0) return; customTimerRunning = true; document.getElementById('customPlayBtn').textContent = '⏸ Pause'; document.getElementById('customTimerLabel').textContent = 'Timer running...'; customTimerInterval = setInterval(() => { customRemaining--; updateCustomDisplay(); if (customRemaining <= 0) { clearInterval(customTimerInterval); customTimerRunning = false; document.getElementById('customPlayBtn').textContent = '▶ Start'; document.getElementById('customTimerLabel').textContent = "⏰ Time's up!"; playBell(); showNotif('⏰', 'Timer complete!', 'var(--accent)'); addSessionLog('Custom ' + (customTotal / 60).toFixed(0) + 'min'); } }, 1000); } }
+        function updateCustomDisplay() { const h = Math.floor(customRemaining / 3600); const m = Math.floor((customRemaining % 3600) / 60); const s = customRemaining % 60; const str = (h > 0 ? String(h).padStart(2, '0') + ':' : '') + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0'); document.getElementById('customTimerDisplay').textContent = str; document.getElementById('customTimerDisplay').style.color = customRemaining <= 120 && customRemaining > 0 ? '#f09060' : 'var(--text)'; }
+        function resetCustomTimer() { clearInterval(customTimerInterval); customTimerRunning = false; customRemaining = 0; customTotal = 0; document.getElementById('customPlayBtn').textContent = '▶ Start'; document.getElementById('customTimerDisplay').textContent = '00:00'; document.getElementById('customTimerLabel').textContent = 'Set your time above'; }
+        ['customHr', 'customMin', 'customSec'].forEach(id => { document.getElementById(id).addEventListener('input', () => { if (!customTimerRunning) { const h = parseInt(document.getElementById('customHr').value) || 0; const m = parseInt(document.getElementById('customMin').value) || 0; const s = parseInt(document.getElementById('customSec').value) || 0; customRemaining = h * 3600 + m * 60 + s; customTotal = customRemaining; updateCustomDisplay(); } }); });
+        // Stopwatch
+        let swRunning = false, swInterval = null, swMs = 0, swLaps = [];
+        function toggleStopwatch() { if (swRunning) { clearInterval(swInterval); swRunning = false; document.getElementById('swPlayBtn').textContent = '▶ Resume'; } else { swRunning = true; document.getElementById('swPlayBtn').textContent = '⏸ Pause'; swInterval = setInterval(() => { swMs += 100; updateSwDisplay(); }, 100); } }
+        function updateSwDisplay() { const h = Math.floor(swMs / 3600000); const m = Math.floor((swMs % 3600000) / 60000); const s = Math.floor((swMs % 60000) / 1000); const ds = Math.floor((swMs % 1000) / 100); document.getElementById('stopwatchDisplay').textContent = (h > 0 ? String(h).padStart(2, '0') + ':' : '') + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0') + '.' + ds; }
+        function resetStopwatch() { clearInterval(swInterval); swRunning = false; swMs = 0; swLaps = []; document.getElementById('swPlayBtn').textContent = '▶ Start'; document.getElementById('stopwatchDisplay').textContent = '00:00.0'; document.getElementById('lapList').innerHTML = ''; }
+        function lapStopwatch() { if (!swRunning && swMs === 0) return; swLaps.push(swMs); const h = Math.floor(swMs / 3600000), m = Math.floor((swMs % 3600000) / 60000), s = Math.floor((swMs % 60000) / 1000), ds = Math.floor((swMs % 1000) / 100); const str = (h > 0 ? String(h).padStart(2, '0') + ':' : '') + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0') + '.' + ds; const item = document.createElement('div'); item.className = 'lap-item'; item.innerHTML = `<span>Lap ${swLaps.length}</span><span>${str}</span>`; document.getElementById('lapList').insertBefore(item, document.getElementById('lapList').firstChild); }
+        // Session log
         let sessionLogs = [];
-        function addSessionLog(label) {
-            sessionLogs.push({ label, time: Date.now() });
-            renderSessionLog();
-        }
-        function renderSessionLog() {
-            const el = document.getElementById('sessionLog'); if (!el) return;
-            el.innerHTML = sessionLogs.slice(-5).reverse().map(s => `<div class="session-item"><span>${s.label}</span><span>${new Date(s.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span></div>`).join('');
-        }
+        function addSessionLog(label) { sessionLogs.push({ label, time: Date.now() }); renderSessionLog(); }
+        function renderSessionLog() { const el = document.getElementById('sessionLog'); if (!el) return; el.innerHTML = sessionLogs.slice(-5).reverse().map(s => `<div class="session-item"><span>${s.label}</span><span>${new Date(s.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span></div>`).join(''); }
 
         // ── RITUAL ─────────────────────────────────────────────────────────────────────
-        const RITUAL_STEPS = [
-            { title: '🧹 Clear the Deck', desc: 'Take 60 seconds to tidy your physical workspace. Put away distractions, close extra tabs.', time: 60 },
-            { title: '💧 Hydration Check', desc: 'Grab a glass of water or your favorite drink. Good work starts with good fuel.', time: 30 },
-            { title: '🎯 Set Your Intent', desc: 'Type your single goal for this session below. One sentence, laser-focused.', time: null }
-        ];
-        let ritualStep = 0;
-        let ritualTimer = null;
-        let ritualCountdown = 0;
-
-        function startRitual() {
-            ritualStep = 0;
-            document.getElementById('ritualOverlay').classList.add('open');
-            showRitualStep(0);
-        }
-        function showRitualStep(i) {
-            const step = RITUAL_STEPS[i];
-            document.getElementById('ritualStepNum').textContent = `STEP ${i + 1} OF ${RITUAL_STEPS.length}`;
-            document.getElementById('ritualTitle').textContent = step.title;
-            document.getElementById('ritualDesc').textContent = step.desc;
-            document.getElementById('ritualIntentInput').style.display = i === 2 ? 'block' : 'none';
-            document.getElementById('ritualNextBtn').textContent = i < RITUAL_STEPS.length - 1 ? 'Next →' : 'Begin Session ✦';
-            // Update dots
-            for (let j = 0; j < 3; j++) {
-                const d = document.getElementById('rdot' + j);
-                d.classList.remove('done', 'active');
-                if (j < i) d.classList.add('done');
-                else if (j === i) d.classList.add('active');
-            }
-            if (step.time) {
-                ritualCountdown = step.time;
-                document.getElementById('ritualCountdown').style.display = 'block';
-                document.getElementById('ritualCountdown').textContent = ritualCountdown;
-                clearInterval(ritualTimer);
-                ritualTimer = setInterval(() => {
-                    ritualCountdown--;
-                    document.getElementById('ritualCountdown').textContent = ritualCountdown;
-                    if (ritualCountdown <= 0) { clearInterval(ritualTimer); playBell(); }
-                }, 1000);
-            } else {
-                clearInterval(ritualTimer);
-                document.getElementById('ritualCountdown').style.display = 'none';
-            }
-        }
-        function ritualNext() {
-            clearInterval(ritualTimer);
-            if (ritualStep < RITUAL_STEPS.length - 1) {
-                ritualStep++;
-                showRitualStep(ritualStep);
-            } else {
-                // Complete ritual
-                sessionIntent = document.getElementById('ritualIntentInput').value.trim() || 'No intent set';
-                document.getElementById('ritualIntentInput').value = '';
-                document.getElementById('ritualOverlay').classList.remove('open');
-                document.getElementById('sessionIntentDisplay').textContent = '🎯 ' + sessionIntent;
-                // Switch to timer tab and start pomo
-                setTab(document.querySelector('.tab:nth-child(3)'), 'rt-timer');
-                showNotif('✦', 'Ritual complete! Session started', 'var(--accent)');
-                // Auto-start pomo
-                setTimeout(() => { if (!timerRunning) toggleTimer(); }, 500);
-            }
-        }
-        function skipRitual() {
-            clearInterval(ritualTimer);
-            document.getElementById('ritualOverlay').classList.remove('open');
-        }
+        const RITUAL_STEPS = [{ title: '🧹 Clear the Deck', desc: 'Take 60 seconds to tidy your physical workspace. Put away distractions.', time: 60 }, { title: '💧 Hydration Check', desc: 'Grab a glass of water or your favorite drink. Good work starts with good fuel.', time: 30 }, { title: '🎯 Set Your Intent', desc: 'Type your single goal for this session below. One sentence, laser-focused.', time: null }];
+        let ritualStep = 0, ritualTimer = null;
+        function startRitual() { ritualStep = 0; document.getElementById('ritualOverlay').classList.add('open'); showRitualStep(0); }
+        function showRitualStep(i) { const step = RITUAL_STEPS[i]; document.getElementById('ritualStepNum').textContent = `STEP ${i + 1} OF ${RITUAL_STEPS.length}`; document.getElementById('ritualTitle').textContent = step.title; document.getElementById('ritualDesc').textContent = step.desc; document.getElementById('ritualIntentInput').style.display = i === 2 ? 'block' : 'none'; document.getElementById('ritualNextBtn').textContent = i < RITUAL_STEPS.length - 1 ? 'Next →' : 'Begin Session ✦'; for (let j = 0; j < 3; j++) { const d = document.getElementById('rdot' + j); d.classList.remove('done', 'active'); if (j < i) d.classList.add('done'); else if (j === i) d.classList.add('active'); } if (step.time) { let c = step.time; document.getElementById('ritualCountdown').style.display = 'block'; document.getElementById('ritualCountdown').textContent = c; clearInterval(ritualTimer); ritualTimer = setInterval(() => { c--; document.getElementById('ritualCountdown').textContent = c; if (c <= 0) { clearInterval(ritualTimer); playBell(); } }, 1000); } else { clearInterval(ritualTimer); document.getElementById('ritualCountdown').style.display = 'none'; } }
+        function ritualNext() { clearInterval(ritualTimer); if (ritualStep < RITUAL_STEPS.length - 1) { ritualStep++; showRitualStep(ritualStep); } else { sessionIntent = document.getElementById('ritualIntentInput').value.trim() || 'No intent set'; document.getElementById('ritualIntentInput').value = ''; document.getElementById('ritualOverlay').classList.remove('open'); document.getElementById('sessionIntentDisplay').textContent = '🎯 ' + sessionIntent; setTab(document.querySelector('.tab:nth-child(3)'), 'rt-timer'); showNotif('✦', 'Ritual complete! Timer started', 'var(--accent)'); setTimeout(() => { if (!timerRunning) toggleTimer(); }, 500); } }
+        function skipRitual() { clearInterval(ritualTimer); document.getElementById('ritualOverlay').classList.remove('open'); }
 
         // ── SYNTHESIS ──────────────────────────────────────────────────────────────────
-        function openSynthesis() {
-            document.getElementById('synthesisOverlay').classList.add('open');
-            document.getElementById('synthInput').value = '';
-            document.getElementById('synthCount').textContent = '0 / 10 words';
-            document.getElementById('synthInput').focus();
-            renderKlogDisplay();
-        }
+        function openSynthesis() { document.getElementById('synthesisOverlay').classList.add('open'); document.getElementById('synthInput').value = ''; document.getElementById('synthCount').textContent = '0 / 10 words'; document.getElementById('synthInput').focus(); renderKlogDisplay(); }
         function closeSynthesis() { document.getElementById('synthesisOverlay').classList.remove('open') }
-        document.getElementById('synthInput').addEventListener('input', function () {
-            const words = this.value.trim().split(/\s+/).filter(Boolean).length;
-            document.getElementById('synthCount').textContent = words + ' / 10 words';
-            if (words > 10) document.getElementById('synthCount').style.color = '#f09060';
-            else document.getElementById('synthCount').style.color = 'var(--text3)';
-        });
-        function saveSynthesis() {
-            const text = document.getElementById('synthInput').value.trim();
-            if (!text) { closeSynthesis(); return; }
-            knowledgeLog.push({ text, time: Date.now() });
-            localStorage.setItem('cj_klog', JSON.stringify(knowledgeLog));
-            closeSynthesis();
-            showNotif('✦', 'Saved to Knowledge Log!', 'var(--accent)');
-        }
-        function renderKlogDisplay() {
-            const el = document.getElementById('knowledgeLogDisplay');
-            if (!knowledgeLog.length) { el.innerHTML = ''; return; }
-            el.innerHTML = '<div style="font-size:10px;color:var(--text3);text-align:left;margin-bottom:6px">Recent Entries</div><div class="knowledge-log">' +
-                knowledgeLog.slice(-4).reverse().map(k => `<div class="klog-item">${k.text}<div class="klog-time">${new Date(k.time).toLocaleString()}</div></div>`).join('') + '</div>';
-        }
+        document.getElementById('synthInput').addEventListener('input', function () { const words = this.value.trim().split(/\s+/).filter(Boolean).length; document.getElementById('synthCount').textContent = words + ' / 10 words'; document.getElementById('synthCount').style.color = words > 10 ? '#f09060' : 'var(--text3)'; });
+        function saveSynthesis() { const text = document.getElementById('synthInput').value.trim(); if (!text) { closeSynthesis(); return; } knowledgeLog.push({ text, time: Date.now() }); localStorage.setItem('cj_klog', JSON.stringify(knowledgeLog)); closeSynthesis(); showNotif('✦', 'Saved to Knowledge Log!', 'var(--accent)'); }
+        function renderKlogDisplay() { const el = document.getElementById('knowledgeLogDisplay'); if (!knowledgeLog.length) { el.innerHTML = ''; return; } el.innerHTML = '<div style="font-size:10px;color:var(--text3);text-align:left;margin-bottom:6px">Recent Entries</div><div class="knowledge-log">' + knowledgeLog.slice(-4).reverse().map(k => `<div class="klog-item">${k.text}<div class="klog-time">${new Date(k.time).toLocaleString()}</div></div>`).join('') + '</div>'; }
 
         // ── INIT ───────────────────────────────────────────────────────────────────────
-        initPomodoro();
-        setTimerMode('pomodoro');
-        updateXPBar();
-        updateCoinDisplay();
-        updateStats();
-        updateJarFill();
-
-        // Make jar view flex
+        initPomodoro(); setTimerMode('pomodoro');
+        updateXPBar(); updateCoinDisplay(); updateStats(); updateJarFill();
+        refreshThemeLocks();
+        renderTrackList();
         document.getElementById('view-jar').style.display = 'flex';
         document.getElementById('view-jar').style.flexDirection = 'column';
         document.getElementById('view-jar').style.alignItems = 'center';
